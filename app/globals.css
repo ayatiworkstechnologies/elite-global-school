@@ -1,26 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Teachers:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap");
+
 @import "tailwindcss";
 
+/* =========================
+   ROOT TOKENS
+========================= */
 :root {
+  /* COLORS */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+
+  --brand-primary: #b91c1c;   /* Elite Red */
+  --brand-secondary: #f59e0b; /* Academic Blue */
+  --brand-accent:  #0e2a47;    /* Gold */
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+
+  --surface-soft: #f9fafb;
+  --surface-muted: #f3f4f6;
+
+  /* TYPOGRAPHY */
+  --font-primary: "Teachers", system-ui, sans-serif;
+  --font-secondary: "Manrope", system-ui, sans-serif;
+
+  /* SPACING – SECTIONS */
+  --section: 4rem;
+  --section-lg: 6rem;
+  --section-xl: 8rem;
+
+  /* CONTAINERS */
+  --container: 72rem;
+  --container-lg: 80rem;
+  --container-xl: 90rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* =========================
+   DARK MODE
+========================= */
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --text-primary: #ededed;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+
+    --surface-soft: #111827;
+    --surface-muted: #1f2933;
   }
+}
+
+/* =========================
+   TAILWIND INLINE THEME
+========================= */
+@theme inline {
+  /* COLORS */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-muted: var(--surface-muted);
+
+  /* FONTS */
+  --font-sans: var(--font-primary);
+  --font-secondary: var(--font-secondary);
+
+  /* SPACING */
+  --spacing-section: var(--section);
+  --spacing-section-lg: var(--section-lg);
+  --spacing-section-xl: var(--section-xl);
+
+  /* CONTAINER WIDTHS */
+  --container-base: var(--container);
+  --container-lg: var(--container-lg);
+  --container-xl: var(--container-xl);
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================
+   SECTION SYSTEM
+========================= */
+.section {
+  padding-block: var(--section);
+}
+
+.section-lg {
+  padding-block: var(--section-lg);
+}
+
+.section-xl {
+  padding-block: var(--section-xl);
+}
+
+/* =========================
+   CONTAINER SYSTEM
+========================= */
+.container-base {
+  max-width: var(--container-base);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.container-lg {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.container-xl {
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* =========================
+   TYPOGRAPHY HELPERS
+========================= */
+.heading-primary {
+  font-family: var(--font-primary);
+}
+
+.heading-secondary {
+  font-family: var(--font-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+  background: var(--brand-primary);
+  color: #fff;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #991b1b;
 }

@@ -1,0 +1,36 @@
+<svg width="1440" height="648" viewBox="0 0 1440 648" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1879_14732)">
+<mask id="mask0_1879_14732" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="1000">
+<path d="M1440 0H0V1000H1440V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_1879_14732)">
+<path d="M69.5 0V1000" stroke="#EFEFEF"/>
+<path d="M162.5 0V1000" stroke="#EFEFEF"/>
+<path d="M255.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 35.5001L0 35.5" stroke="#EFEFEF"/>
+<path d="M348.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 128.5H0" stroke="#EFEFEF"/>
+<path d="M441.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 221.5H0" stroke="#EFEFEF"/>
+<path d="M534.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 314.5H0" stroke="#EFEFEF"/>
+<path d="M627.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 407.5H0" stroke="#EFEFEF"/>
+<path d="M720.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 500.5H0" stroke="#EFEFEF"/>
+<path d="M813.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1440 593.5H0" stroke="#EFEFEF"/>
+<path d="M906.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1003 0V1000" stroke="#EFEFEF"/>
+<path d="M1092.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1185.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1278.5 0V1000" stroke="#EFEFEF"/>
+<path d="M1371.5 0V1000" stroke="#EFEFEF"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1879_14732">
+<rect width="1440" height="1000" fill="white"/>
+</clipPath>
+</defs>
+</svg>
