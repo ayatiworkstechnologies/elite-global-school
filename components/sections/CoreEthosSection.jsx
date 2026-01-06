@@ -81,21 +81,21 @@ export default function CoreEthosSection() {
           return (
             <div
               key={item.no}
-              className={`
-                grid gap-10 items-center
-                lg:grid-cols-2 lg:gap-14
-                ${isReverse ? "lg:[&>*:first-child]:order-2" : ""}
-              `}
+              className="grid gap-10 items-center lg:grid-cols-2 lg:gap-14"
             >
               {/* TEXT */}
               <motion.div
+                className={`
+                  relative
+                  order-1
+                  ${isReverse ? "lg:order-2" : "lg:order-1"}
+                `}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="relative"
               >
-                {/* BIG NUMBER – WATERMARK */}
+                {/* NUMBER WATERMARK */}
                 <div className="absolute -top-6 left-0 text-7xl sm:text-8xl font-bold text-black/10 leading-none">
                   {item.no}
                 </div>
@@ -127,11 +127,15 @@ export default function CoreEthosSection() {
 
               {/* IMAGE */}
               <motion.div
+                className={`
+                  relative overflow-hidden
+                  order-2
+                  ${isReverse ? "lg:order-1" : "lg:order-2"}
+                `}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="relative overflow-hidden"
               >
                 <motion.div
                   initial={{ scale: 0.96 }}

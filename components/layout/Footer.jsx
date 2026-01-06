@@ -32,11 +32,11 @@ export default function Footer() {
             priority
           />
 
-          <h4 className="font-primary text-sm text-brand-primary mb-2">
+          <h4 className="font-primary text-lg text-brand-primary mb-2">
             Elite Global School
           </h4>
 
-          <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
+          <p className="text-lg text-text-secondary leading-relaxed max-w-xs">
             Empowering young minds through quality education and holistic
             development.
           </p>
@@ -52,17 +52,17 @@ export default function Footer() {
 
         {/* CONTACT */}
         <FooterColumn title="Contact Us" delay={0.2}>
-          <p className="text-sm text-text-secondary leading-relaxed">
+          <p className="text-lg text-text-secondary leading-relaxed">
             No. 48 & 49, Kumarswamy Nagar,<br />
             Villivakkam,<br />
             Chennai – 600 049
           </p>
 
-          <p className="text-sm text-text-secondary mt-3">
+          <p className="text-lg text-text-secondary mt-3">
             info@eliteglobalschools.com
           </p>
 
-          <p className="text-sm text-text-secondary mt-2">
+          <p className="text-lg text-text-secondary mt-2">
             +91 99480 70404
           </p>
         </FooterColumn>
@@ -98,7 +98,7 @@ function FooterColumn({ title, children, delay }) {
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
     >
-      <h5 className="font-primary text-sm mb-4 text-text-primary relative inline-block">
+      <h5 className="font-primary text-2xl font-bold mb-4 text-text-primary relative inline-block">
         {title}
         <span className="absolute left-0 -bottom-1 h-0.5 w-6 bg-brand-secondary" />
       </h5>
@@ -111,7 +111,7 @@ function FooterLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="block text-sm text-text-secondary hover:text-brand-primary transition"
+      className="block text-lg text-text-secondary hover:text-brand-primary transition"
     >
       {children}
     </Link>
@@ -126,7 +126,7 @@ function SocialIcon({ Icon }) {
       className="
         w-8 h-8 rounded-sm
         flex items-center justify-center
-        bg-white text-yellow-700
+        bg-white text-brand-secondary
         hover:bg-brand-primary hover:text-white
         transition-colors
         cursor-pointer
