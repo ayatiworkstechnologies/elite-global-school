@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 /* =========================
-   ROOT TOKENS
+   ROOT TOKENS – LIGHT THEME
 ========================= */
 :root {
   /* COLORS */
@@ -11,8 +11,8 @@
   --foreground: #111827;
 
   --brand-primary: #b91c1c;   /* Elite Red */
-  --brand-secondary: #f59e0b; /* Academic Blue */
-  --brand-accent:  #0e2a47;    /* Gold */
+  --brand-secondary: #f59e0b; /* Accent Gold */
+  --brand-accent:  #0e2a47;   /* Deep Blue */
 
   --text-primary: #111827;
   --text-secondary: #4b5563;
@@ -34,23 +34,6 @@
   --container: 72rem;
   --container-lg: 80rem;
   --container-xl: 90rem;
-}
-
-/* =========================
-   DARK MODE
-========================= */
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-
-    --text-primary: #ededed;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
-
-    --surface-soft: #111827;
-    --surface-muted: #1f2933;
-  }
 }
 
 /* =========================
@@ -100,7 +83,6 @@ body {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
 }
-
 
 /* =========================
    SECTION SYSTEM

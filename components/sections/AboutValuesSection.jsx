@@ -56,11 +56,7 @@ export default function AboutValuesSection() {
               </span>
             </div>
 
-            <h2 className="
-              mt-4 font-primary font-bold
-              text-3xl sm:text-4xl lg:text-5xl
-              leading-tight text-brand-primary
-            ">
+            <h2 className="mt-4 font-primary font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight text-brand-primary">
               A Place Where<br />
               Every Learner Is<br />
               Meant To Be A<br />
@@ -71,11 +67,7 @@ export default function AboutValuesSection() {
           {/* RIGHT DESCRIPTION */}
           <motion.p
             variants={fadeUp}
-            className="
-              text-base sm:text-lg
-              text-text-secondary leading-relaxed
-              max-w-xl
-            "
+            className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-xl"
           >
             Elite Global, a new born galaxy with billions of dreams to mould our
             children to make them understand and identify the Creator and to
@@ -90,6 +82,7 @@ export default function AboutValuesSection() {
             mt-14 sm:mt-16
             grid grid-cols-12
             gap-6
+            items-stretch
           "
         >
           {VALUES.map((item, index) => (
@@ -111,20 +104,23 @@ export default function AboutValuesSection() {
                   px-6 py-8
                   text-center lg:text-left
                   w-full
-                  max-w-sm
+                  
+                  h-full
+                  flex flex-col justify-between
                 "
               >
-                <div className="text-2xl font-extrabold text-text-primary">
+                <div className="text-5xl font-extrabold text-black/40">
                   {item.no}
                 </div>
 
-                <p className="mt-2 text-base sm:text-lg leading-snug text-text-secondary">
-                  <span className="font-medium text-text-primary">
+                <p className="mt-4 text-xl font-semibold text-text-primary">
+                  <span className="">
                     {item.title}
                   </span>
-                  <br />
-                  {item.desc}
+                  
+                  
                 </p>
+                <p className="mt-4 text-xl leading-snug text-text-secondary">{item.desc}</p>
               </div>
             </motion.div>
           ))}
