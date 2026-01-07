@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 
 const VALUES = [
-  { no: "01", title: "Strong academics", desc: "with personal attention" },
-  { no: "02", title: "Safe, nurturing", desc: "learning environment" },
-  { no: "03", title: "Experienced and", desc: "caring educators" },
-  { no: "04", title: "Holistic development", desc: "beyond textbooks" },
-  { no: "05", title: "Modern facilities,", desc: "traditional values" },
+  { no: "01", title: "Strong academics with personal attention" },
+  { no: "02", title: "Safe, nurturing learning environment" },
+  { no: "03", title: "Experienced and caring educators" },
+  { no: "04", title: "Holistic development beyond textbooks" },
+  { no: "05", title: "Modern facilities, traditional values" },
 ];
 
 /* ANIMATION VARIANTS */
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -28,30 +28,27 @@ export default function AboutValuesSection() {
   return (
     <section
       className="
-        relative overflow-hidden
+        relative
         py-20 sm:py-24 lg:py-32
-        bg-cover bg-center bg-no-repeat
+         bg-center bg-no-repeat
       "
       style={{ backgroundImage: "url('/assets/about-bg.svg')" }}
     >
-      {/* OVERLAY */}
-      <div className="absolute inset-0 backdrop-blur-[1px]" />
 
       {/* CONTENT */}
       <motion.div
         variants={stagger}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={{ once: true }}
         className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* TOP CONTENT */}
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
-          {/* LEFT TITLE */}
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start mb-16">
           <motion.div variants={fadeUp}>
             <div className="flex items-center gap-3">
               <span className="w-12 h-0.5 bg-brand-secondary" />
-              <span className="text-sm sm:text-base tracking-widest text-brand-secondary uppercase">
+              <span className="text-sm tracking-widest text-brand-secondary uppercase">
                 About
               </span>
             </div>
@@ -64,7 +61,6 @@ export default function AboutValuesSection() {
             </h2>
           </motion.div>
 
-          {/* RIGHT DESCRIPTION */}
           <motion.p
             variants={fadeUp}
             className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-xl"
@@ -79,49 +75,43 @@ export default function AboutValuesSection() {
         <motion.div
           variants={stagger}
           className="
-            mt-14 sm:mt-16
-            grid grid-cols-12
-            gap-6
-            items-stretch
+            grid grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-5
+            bg-white/90 shadow-lg
           "
         >
           {VALUES.map((item, index) => (
             <motion.div
               key={item.no}
               variants={fadeUp}
-              className={`
-                col-span-12
-                sm:col-span-6
-                lg:col-span-2
-                ${index === 4 ? "sm:col-span-12 flex justify-center" : ""}
-              `}
+              className="
+                relative
+                px-6 py-8
+                text-center lg:text-left
+              "
             >
-              <div
-                className="
-                  bg-white
-                  rounded-xl
-                  shadow-lg
-                  px-6 py-8
-                  text-center lg:text-left
-                  w-full
-                  
-                  h-full
-                  flex flex-col justify-between
-                "
-              >
-                <div className="text-5xl font-extrabold text-black/40">
-                  {item.no}
-                </div>
+              {/* VERTICAL DIVIDER (DESKTOP ONLY) */}
+              {index !== VALUES.length - 1 && (
+                <span
+                  className="
+                    hidden lg:block
+                    absolute top-1/2 right-0
+                    -translate-y-1/2
+                    h-[120px] w-px
+                    bg-black/10
+                  "
+                />
+              )}
 
-                <p className="mt-4 text-xl font-semibold text-text-primary">
-                  <span className="">
-                    {item.title}
-                  </span>
-                  
-                  
-                </p>
-                <p className="mt-4 text-xl leading-snug text-text-secondary">{item.desc}</p>
+              <div className="text-4xl font-bold text-black mb-3">
+                {item.no}
               </div>
+
+              <p className="text-lg text-text-secondary leading-snug">
+                {item.title}
+              </p>
+
             </motion.div>
           ))}
         </motion.div>

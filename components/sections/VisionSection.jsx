@@ -1,45 +1,67 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+
+const CONTENT = {
+  vision: {
+    title: "Our Vision",
+    text: `Our vision is to build a sturdy and highly educated citizen who are articulate, thoughtful, trusts to express and debate ideas and actively contributes to their own and others growth and also to uphold a learning community that produces leaders through faith, knowledge and inspiration.`,
+    image: "/assets/vision.png",
+  },
+  mission: {
+    title: "Our Mission",
+    text: `Elite Global is dedicated to build an enriched learning environment using modern-day teaching pedagogy to cultivate an innovative and rigorous academic program streamed with CBSE Curriculum.`,
+    image: "/assets/mission.png",
+  },
+};
 
 export default function VisionSection() {
+  const triggerRef = useRef(null);
+
+  const showMission = useInView(triggerRef, {
+    margin: "-60% 0px -40% 0px",
+  });
+
+  const data = showMission ? CONTENT.mission : CONTENT.vision;
+
   return (
     <section className="section-lg bg-white overflow-hidden">
       <div className="container-lg relative">
 
         {/* IMAGE BLOCK (RIGHT – 70%) */}
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="relative w-full lg:ml-auto lg:w-[70%]"
-        >
-          {/* IMAGE FRAME – DESKTOP ONLY */}
-          <div className="hidden lg:block absolute -right-4 -bottom-4 w-full h-full border border-brand-secondary pointer-events-none" />
+        <div className="relative w-full lg:ml-auto lg:w-[70%]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={data.image}
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative"
+            >
+              {/* <div className="hidden lg:block absolute -right-4 -bottom-4 w-full h-full border border-brand-secondary pointer-events-none" /> */}
 
-          <Image
-            src="/assets/vission.png"
-            alt="Students in classroom"
-            width={900}
-            height={560}
-            className="relative z-10 w-full h-auto object-cover rounded-sm"
-            priority
-          />
-        </motion.div>
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={800}
+                height={360}
+                className="relative z-10 w-full h-auto object-cover rounded-sm"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-        {/* GLASS CARD */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-          viewport={{ once: true }}
+        {/* GLASS CARD (SAME POSITION & STYLE) */}
+        <motion.div ref={triggerRef} 
           className="
             relative
             mt-8
-            
             bg-white
             border border-gray-200
             shadow-lg
@@ -60,31 +82,38 @@ export default function VisionSection() {
             z-20
           "
         >
-          {/* SECTION TAG */}
-          <div className="flex items-center gap-3 mb-4">
-            <span className="block w-12 h-0.5 bg-brand-secondary" />
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={data.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="block w-12 h-0.5 bg-brand-secondary" />
+              </div>
 
-          <h3 className="font-primary text-2xl sm:text-3xl lg:text-4xl text-brand-primary mb-4">
-            Our Vision
-          </h3>
+              <h3 className="font-primary text-2xl sm:text-3xl lg:text-4xl text-brand-primary mb-4">
+                {data.title}
+              </h3>
 
-          <p className="text-base sm:text-lg text-black leading-relaxed">
-            Our vision is to build a sturdy and highly educated citizen who are
-            articulate, thoughtful, trustworthy and creative leaders and
-            actively contribute to their own and others’ growth and uphold a
-            learning community that produces leaders through knowledge and
-            inspiration.
-          </p>
+              <p className="text-base sm:text-lg text-black leading-relaxed">
+                {data.text}
+              </p>
 
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 mt-5 text-lg sm:text-xl font-medium text-brand-secondary hover:underline"
-          >
-            Read more →
-          </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 mt-5 text-lg sm:text-xl font-medium text-brand-secondary hover:underline"
+              >
+                Read more →
+              </Link>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
 
+        {/* SCROLL TRIGGER */}
+        {/* <div ref={triggerRef} className="h-[60vh]" /> */}
       </div>
     </section>
   );

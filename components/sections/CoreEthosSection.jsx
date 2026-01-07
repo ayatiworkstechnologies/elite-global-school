@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
+/* DATA */
 const ITEMS = [
   {
     no: "01",
@@ -42,10 +43,43 @@ const ITEMS = [
   },
 ];
 
+/* ANIMATION VARIANTS */
+const textVariants = {
+  hidden: (reverse) => ({
+    opacity: 0,
+    x: reverse ? 70 : -70,
+  }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.85,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: (reverse) => ({
+    opacity: 0,
+    x: reverse ? -70 : 70,
+    scale: 0.94,
+  }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 export default function CoreEthosSection() {
   return (
     <section className="relative section-lg bg-white overflow-hidden">
-      {/* BACKGROUND PATTERN */}
+      {/* BACKGROUND DOT PATTERN */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
         <svg width="100%" height="100%">
           <defs>
@@ -58,11 +92,12 @@ export default function CoreEthosSection() {
       </div>
 
       <div className="container-lg relative space-y-20 lg:space-y-36">
+
         {/* SECTION HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
           className="text-center"
         >
@@ -85,15 +120,14 @@ export default function CoreEthosSection() {
             >
               {/* TEXT */}
               <motion.div
-                className={`
-                  relative
-                  order-1
-                  ${isReverse ? "lg:order-2" : "lg:order-1"}
-                `}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
+                custom={isReverse}
+                variants={textVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-120px" }}
+                className={`relative order-1 ${
+                  isReverse ? "lg:order-2" : "lg:order-1"
+                }`}
               >
                 {/* NUMBER WATERMARK */}
                 <div className="absolute -top-6 left-0 text-7xl sm:text-8xl font-bold text-black/10 leading-none">
@@ -127,22 +161,18 @@ export default function CoreEthosSection() {
 
               {/* IMAGE */}
               <motion.div
-                className={`
-                  relative overflow-hidden
-                  order-2
-                  ${isReverse ? "lg:order-1" : "lg:order-2"}
-                `}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
+                custom={isReverse}
+                variants={imageVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-120px" }}
+                className={`relative overflow-hidden order-2 ${
+                  isReverse ? "lg:order-1" : "lg:order-2"
+                }`}
               >
                 <motion.div
-                  initial={{ scale: 0.96 }}
-                  whileInView={{ scale: 1 }}
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="w-full h-full"
+                  whileHover={{ scale: 1.04 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                   <Image
                     src={item.image}
