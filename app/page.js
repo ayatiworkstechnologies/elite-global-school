@@ -1,7 +1,9 @@
 import AboutValuesSection from "@/components/sections/AboutValuesSection";
+import ActivitiesVideoSection from "@/components/sections/ActivitiesVideoSection";
 import CoreEthosSection from "@/components/sections/CoreEthosSection";
 import HeroSection from "@/components/sections/HeroSection";
 import HomeCTA from "@/components/sections/HomeCTA";
+import InnerStorySection from "@/components/sections/InnerStorySection";
 import OurFocusSection from "@/components/sections/OurFocusSection";
 import SportsAcademySection from "@/components/sections/SportsAcademySection";
 import SportsAcademySlider from "@/components/sections/SportsAcademySlider";
@@ -14,8 +16,10 @@ export default function Home() {
     <>
     <HeroSection />
     <AboutValuesSection />
+    <ActivitiesVideoSection />
     <VisionSection/>
     <CoreEthosSection/>
+    <InnerStorySection />
     <OurFocusSection />
     <UniquenessSection />
     <SportsAcademySlider />
