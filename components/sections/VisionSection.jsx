@@ -1,10 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
 
 const CONTENT = {
   vision: {
@@ -20,19 +19,30 @@ const CONTENT = {
 };
 
 export default function VisionSection() {
-  const triggerRef = useRef(null);
+  const sectionRef = useRef(null);
+  const [mode, setMode] = useState("vision");
 
-  const showMission = useInView(triggerRef, {
-    margin: "-60% 0px -40% 0px",
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end center"],
   });
 
-  const data = showMission ? CONTENT.mission : CONTENT.vision;
+  /* CHANGE CONTENT BASED ON SCROLL */
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v > 0.5) setMode("mission");
+    else setMode("vision");
+  });
+
+  const data = CONTENT[mode];
 
   return (
-    <section className="section-lg bg-white overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="section-lg bg-white overflow-hidden"
+    >
       <div className="container-lg relative">
 
-        {/* IMAGE BLOCK (RIGHT – 70%) */}
+        {/* IMAGE BLOCK */}
         <div className="relative w-full lg:ml-auto lg:w-[70%]">
           <AnimatePresence mode="wait">
             <motion.div
@@ -41,44 +51,25 @@ export default function VisionSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -60 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative"
             >
-              {/* <div className="hidden lg:block absolute -right-4 -bottom-4 w-full h-full border border-brand-secondary pointer-events-none" /> */}
-
               <Image
                 src={data.image}
                 alt={data.title}
                 width={800}
                 height={360}
-                className="relative z-10 w-full h-auto object-cover rounded-sm"
+                className="w-full h-auto object-cover rounded-sm"
                 priority
               />
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* GLASS CARD (SAME POSITION & STYLE) */}
-        <motion.div ref={triggerRef} 
+        {/* GLASS CONTENT CARD */}
+        <div
           className="
-            relative
-            mt-8
-            bg-white
-            border border-gray-200
-            shadow-lg
-            rounded-xl
-            p-6
-
-            lg:absolute
-            lg:top-1/2
-            lg:right-[55%]
-            lg:-translate-y-1/2
-            lg:mt-0
-            lg:max-w-xl
-            lg:bg-white/5
-            lg:backdrop-blur-lg
-            lg:border-white/40
-            lg:shadow-xl
-            lg:p-10
+            relative mt-8 bg-white border border-gray-200 shadow-lg rounded-xl p-6
+            lg:absolute lg:top-1/2 lg:right-[55%] lg:-translate-y-1/2 lg:mt-0
+            lg:max-w-xl lg:bg-white/5 lg:backdrop-blur-lg lg:border-white/40 lg:shadow-xl lg:p-10
             z-20
           "
         >
@@ -88,11 +79,9 @@ export default function VisionSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.45 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="block w-12 h-0.5 bg-brand-secondary" />
-              </div>
+              <span className="block w-12 h-0.5 bg-brand-secondary mb-4" />
 
               <h3 className="font-primary text-2xl sm:text-3xl lg:text-4xl text-brand-primary mb-4">
                 {data.title}
@@ -104,16 +93,14 @@ export default function VisionSection() {
 
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 mt-5 text-lg sm:text-xl font-medium text-brand-secondary hover:underline"
+                className="inline-flex items-center gap-2 mt-5 text-lg font-medium text-brand-secondary hover:underline"
               >
                 Read more →
               </Link>
             </motion.div>
           </AnimatePresence>
-        </motion.div>
+        </div>
 
-        {/* SCROLL TRIGGER */}
-        {/* <div ref={triggerRef} className="h-[60vh]" /> */}
       </div>
     </section>
   );

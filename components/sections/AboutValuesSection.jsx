@@ -11,16 +11,45 @@ const VALUES = [
 ];
 
 /* ANIMATION VARIANTS */
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0 },
+
+// Title: Bottom → Top
+const titleVariant = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
 };
 
-const stagger = {
+// Content: Left → Right
+const contentVariant = {
+  hidden: { opacity: 0, x: -60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut", delay: 0.15 },
+  },
+};
+
+// Cards container (stagger)
+const cardContainer = {
+  hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
+  },
+};
+
+// Individual card: Bottom → Top (one by one)
+const cardItem = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
@@ -30,22 +59,22 @@ export default function AboutValuesSection() {
       className="
         relative
         py-20 sm:py-24 lg:py-32
-         bg-center bg-no-repeat
+        bg-center bg-no-repeat
       "
       style={{ backgroundImage: "url('/assets/about-bg.svg')" }}
     >
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
 
-      {/* CONTENT */}
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8"
-      >
         {/* TOP CONTENT */}
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start mb-16">
-          <motion.div variants={fadeUp}>
+
+          {/* TITLE */}
+          <motion.div
+            variants={titleVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <div className="flex items-center gap-3">
               <span className="w-12 h-0.5 bg-brand-secondary" />
               <span className="text-sm tracking-widest text-brand-secondary uppercase">
@@ -61,8 +90,12 @@ export default function AboutValuesSection() {
             </h2>
           </motion.div>
 
+          {/* CONTENT */}
           <motion.p
-            variants={fadeUp}
+            variants={contentVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-xl"
           >
             Elite Global, a new born galaxy with billions of dreams to mould our
@@ -73,7 +106,10 @@ export default function AboutValuesSection() {
 
         {/* VALUES STRIP */}
         <motion.div
-          variants={stagger}
+          variants={cardContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           className="
             grid grid-cols-1
             sm:grid-cols-2
@@ -84,14 +120,14 @@ export default function AboutValuesSection() {
           {VALUES.map((item, index) => (
             <motion.div
               key={item.no}
-              variants={fadeUp}
+              variants={cardItem}
               className="
                 relative
                 px-6 py-8
                 text-center lg:text-left
               "
             >
-              {/* VERTICAL DIVIDER (DESKTOP ONLY) */}
+              {/* DIVIDER */}
               {index !== VALUES.length - 1 && (
                 <span
                   className="
@@ -111,11 +147,11 @@ export default function AboutValuesSection() {
               <p className="text-lg text-text-secondary leading-snug">
                 {item.title}
               </p>
-
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+
+      </div>
     </section>
   );
 }

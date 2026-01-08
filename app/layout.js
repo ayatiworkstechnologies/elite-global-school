@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
    METADATA
 ========================= */
 export const metadata = {
-  title: "Elite Global School",
+  title: "Islamic schools in Chennai, Elite Global School | Enlighten Knowledge",
   description: "A place where every learner is meant to be a star",
 };
 

@@ -14,8 +14,8 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200">
       {/* TOP FOOTER */}
-      <div className="container-lg section-lg grid gap-12 md:grid-cols-4">
-        
+      <div className="container-lg py-10 grid gap-12 md:grid-cols-4">
+
         {/* BRAND */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,11 +24,11 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <Image
-            src="/elite-logo.jpg"
+            src="/elite-logo.png"
             alt="Elite Global School"
             width={160}
             height={44}
-            className="h-11 w-auto mb-4 object-contain"
+            className="h-18 w-auto mb-4 object-contain"
             priority
           />
 
@@ -50,22 +50,41 @@ export default function Footer() {
           <FooterLink href="/contact">Contact Us</FooterLink>
         </FooterColumn>
 
-        {/* CONTACT */}
+
+
         <FooterColumn title="Contact Us" delay={0.2}>
           <p className="text-lg text-text-secondary leading-relaxed">
-            No. 48 & 49, Kumarswamy Nagar,<br />
-            Villivakkam,<br />
-            Chennai – 600 049
+            <Link
+              href="https://www.google.com/maps/search/?api=1&query=No.+48+%26+49,+Kumarswamy+Nagar,+Villivakkam,+Chennai+600049"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-primary transition"
+            >
+              No. 48 & 49, Kumarswamy Nagar,<br />
+              Villivakkam,<br />
+              Chennai – 600 049
+            </Link>
           </p>
 
-          <p className="text-lg text-text-secondary mt-3">
-            info@eliteglobalschools.com
+          <p className="text-lg mt-3">
+            <Link
+              href="mailto:info@eliteglobalschools.com"
+              className="text-text-secondary hover:text-brand-primary transition"
+            >
+              info@eliteglobalschools.com
+            </Link>
           </p>
 
-          <p className="text-lg text-text-secondary mt-2">
-            +91 99480 70404
+          <p className="text-lg mt-2">
+            <Link
+              href="tel:+919948070404"
+              className="text-text-secondary hover:text-brand-primary transition"
+            >
+              +91 99480 70404
+            </Link>
           </p>
         </FooterColumn>
+
 
         {/* SOCIAL */}
         <FooterColumn title="Follow Us" delay={0.3}>
@@ -79,9 +98,10 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM BAR */}
-      <div className="border-t border-gray-300 py-6 text-center text-xs text-text-muted">
-        © 2026 Elite Global School. All Rights Reserved.
+      <div className="border-t border-gray-300 py-3 text-center text-lg text-text-secondary">
+        © {new Date().getFullYear()} Elite Global School. All Rights Reserved.
       </div>
+
     </footer>
   );
 }

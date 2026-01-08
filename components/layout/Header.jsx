@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 import NavLink from "./NavLink";
+import Link from "next/link";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -32,14 +33,15 @@ export default function Header() {
           
           {/* LOGO */}
           <div className="flex items-center gap-3">
-            <Image
-              src="/elite-logo.jpg"
+            <Link href="/"> <Image
+              src="/elite-logo.png"
               alt="Elite Global School"
               width={160}
-              height={44}
+              height={50}
               priority
-              className="h-11 w-auto object-contain"
-            />
+              className="h-18 w-auto object-contain"
+            /></Link>
+            
           </div>
 
           {/* DESKTOP NAV */}

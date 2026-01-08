@@ -15,13 +15,13 @@ export default function NavLink({
         font-secondary tracking-wide transition-colors duration-200
         ${
           mobile
-            ? "block text-lg py-3"
+            ? "block text-xl py-3"
             : "text-sm"
         }
         ${
           active
-            ? "text-brand-primary font-semibold"
-            : "text-text-secondary hover:text-brand-primary"
+            ? "text-brand-primary font-semibold text-xl"
+            : "text-brand-accent hover:text-brand-primary text-lg"
         }
       `}
     >

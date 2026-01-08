@@ -2,22 +2,41 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const FEATURES = [
-  { title: "Playground", desc: "Bright, focused spaces designed for creative play and physical development.", image: "/assets/our-1.jpg" },
-  { title: "Classroom", desc: "Open, safe areas where students explore, collaborate and build teamwork.", image: "/assets/our-2.jpg" },
-  { title: "Campus", desc: "A secure, inspiring environment that supports learning beyond classrooms.", image: "/assets/our-3.jpg" },
-  { title: "Library", desc: "A knowledge hub that encourages reading, research, and independent thinking.", image: "/assets/our-4.jpg" },
-  { title: "Canteen", desc: "Hygienic, welcoming spaces serving nutritious meals for growing minds.", image: "/assets/our-5.jpg" },
+  { title: "Playground", desc: "Bright, focused spaces designed for creative play and physical development.", image: "/assets/our-5.jpg" },
+  { title: "Classroom", desc: "Open, safe areas where students explore, collaborate and build teamwork.", image: "/assets/our-4.jpg" },
+  { title: "Campus", desc: "A secure, inspiring environment that supports learning beyond classrooms.", image: "/assets/our-1.jpg" },
+  { title: "Library", desc: "A knowledge hub that encourages reading, research, and independent thinking.", image: "/assets/our-2.jpg" },
+  { title: "Canteen", desc: "Hygienic, welcoming spaces serving nutritious meals for growing minds.", image: "/assets/our-3.jpg" },
 ];
 
 export default function UniquenessSection() {
   const [activeIndex, setActiveIndex] = useState(2);
+  const timerRef = useRef(null);
+
+  /* AUTO SLIDE */
+  useEffect(() => {
+    startAuto();
+    return stopAuto;
+  }, []);
+
+  const startAuto = () => {
+    stopAuto();
+    timerRef.current = setInterval(() => {
+      setActiveIndex((p) => (p + 1) % FEATURES.length);
+    }, 4000);
+  };
+
+  const stopAuto = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+  };
 
   return (
     <section className="section-lg bg-white overflow-hidden">
-      <div className="container-lg">
+      {/* FULL WIDTH WRAPPER */}
+      <div className="w-full px-4 lg:px-0">
 
         {/* HEADER */}
         <motion.div
@@ -25,7 +44,7 @@ export default function UniquenessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-16 lg:mb-20 max-w-4xl mx-auto"
         >
           <span className="text-sm sm:text-lg tracking-widest text-text-muted uppercase">
             Why Elite Global School?
@@ -36,47 +55,33 @@ export default function UniquenessSection() {
           </h2>
         </motion.div>
 
-        {/* ================= MOBILE VIEW ================= */}
+        {/* ================= MOBILE VIEW (UNCHANGED) ================= */}
         <div className="lg:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
           {FEATURES.map((item, index) => (
             <motion.div
               key={item.title}
               onClick={() => setActiveIndex(index)}
               whileTap={{ scale: 0.97 }}
-              className="
-                relative flex-shrink-0
-                w-[85%] h-[260px]
-                snap-center
-                rounded-xl overflow-hidden shadow-xl
-                cursor-pointer
-              "
+              className="relative flex-shrink-0 w-[85%] h-[260px] snap-center rounded-xl overflow-hidden shadow-xl"
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover"
-              />
-
+              <Image src={item.image} alt={item.title} fill className="object-cover" />
               <div className="absolute inset-0 bg-black/40" />
-
               <div className="absolute bottom-0 p-4 text-white">
-                <h4 className="font-primary text-xl mb-1">
-                  {item.title}
-                </h4>
-                <p className="text-sm leading-relaxed text-white/90">
-                  {item.desc}
-                </p>
+                <h4 className="font-primary text-xl mb-1">{item.title}</h4>
+                <p className="text-sm text-white/90">{item.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ================= DESKTOP VIEW ================= */}
-        <div className="relative hidden lg:flex justify-center items-end h-[340px]">
+        {/* ================= DESKTOP VIEW (AUTO + FULL WIDTH) ================= */}
+        <div
+          onMouseEnter={stopAuto}
+          onMouseLeave={startAuto}
+          className="relative hidden lg:flex justify-center items-end h-[360px] w-full"
+        >
           {FEATURES.map((item, index) => {
             const total = FEATURES.length;
-
             let distance = index - activeIndex;
             if (distance > total / 2) distance -= total;
             if (distance < -total / 2) distance += total;
@@ -89,45 +94,24 @@ export default function UniquenessSection() {
                 key={item.title}
                 onClick={() => setActiveIndex(index)}
                 animate={{
-                  x: distance * 160,
-                  scale: isActive ? 1 : abs === 1 ? 0.9 : 0.85,
-                  opacity: isActive ? 1 : abs === 1 ? 0.9 : 0.7,
+                  x: distance * 220,
+                  scale: isActive ? 1 : abs === 1 ? 0.92 : 0.88,
                 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                whileHover={{ y: -6 }}
-                className={`
-                  absolute cursor-pointer overflow-hidden rounded-xl shadow-xl
-                  ${isActive
-                    ? "z-30 w-[450px] h-[280px]"
+                whileHover={{ y: -8 }}
+                className={`absolute overflow-hidden rounded-xl shadow-xl cursor-pointer
+    ${isActive
+                    ? "z-30 w-[520px] h-[340px]"
                     : abs === 1
-                      ? "z-20 w-[440px] h-[260px]"
-                      : "z-10 w-[440px] h-[240px]"}
-                `}
+                      ? "z-20 w-[480px] h-[300px]"
+                      : "z-10 w-[460px] h-[280px]"}`}
               >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                />
 
-                <motion.div
-                  animate={{
-                    backgroundColor: isActive
-                      ? "rgba(0,0,0,0.25)"
-                      : "rgba(0,0,0,0.45)",
-                  }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0"
-                />
+                <Image src={item.image} alt={item.title} fill className="object-cover" />
 
-                <div className="absolute bottom-0 p-4 text-white">
-                  <h4 className="font-primary text-2xl mb-1">
-                    {item.title}
-                  </h4>
-                  <p className="text-lg leading-relaxed text-white/90">
-                    {item.desc}
-                  </p>
+                <div className="absolute bottom-0 p-5 text-white">
+                  <h4 className="font-primary text-2xl mb-1">{item.title}</h4>
+                  <p className="text-lg text-white/90">{item.desc}</p>
                 </div>
               </motion.div>
             );
