@@ -53,7 +53,7 @@ const itemVariants = {
 export default function CoreValuesSection() {
   return (
     <section className="py-20 lg:py-28 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-6 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8">
         
         {/* --- HEADER --- */}
         <div className="text-center mb-16 lg:mb-20">
@@ -114,9 +114,9 @@ export default function CoreValuesSection() {
                 <div 
                   className="absolute bg-gray-200
                   /* MOBILE: Bottom Horizontal Line */
-                  bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px]
+                  bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-px
                   /* DESKTOP: Right Vertical Line */
-                  lg:top-1/2 lg:right-0 lg:left-auto lg:bottom-auto lg:-translate-y-1/2 lg:w-[1px] lg:h-[60%]"
+                  lg:top-1/2 lg:right-0 lg:left-auto lg:bottom-auto lg:-translate-y-1/2 lg:w-px lg:h-[60%]"
                 />
               )}
             </motion.div>

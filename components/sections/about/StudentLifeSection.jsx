@@ -10,29 +10,23 @@ const DATA = [
     category: "CLUBS & SOCIETIES",
     title: "Find Your Passion",
     description: "Join one of our 50+ student-led organizations. Whether you're into robotics, debate, or environmental science, there's a place for you to lead and learn.",
-    image: "/assets/student-life-1.jpg", // Replace with your image path
+    image: "/assets/student-1.png", // Replace with your image path
   },
   {
     id: 2,
     category: "ARTS & EXPRESSION",
     title: "Creative Excellence",
     description: "Our vibrant arts program includes theater productions, orchestra, jazz band, and visual arts exhibitions that celebrate student creativity.",
-    image: "/assets/student-life-2.jpg", // Replace with your image path
+    image: "/assets/student-2.png", // Replace with your image path
   },
   {
     id: 3,
     category: "ATHLETICS",
     title: "Team Spirit",
     description: "With top-tier facilities and coaching, our athletes learn the value of teamwork, resilience, and sportsmanship on and off the field.",
-    image: "/assets/student-life-3.jpg", // Replace with your image path
+    image: "/assets/student-3.png", // Replace with your image path
   },
-  {
-    id: 4,
-    category: "COMMUNITY",
-    title: "Service & Impact",
-    description: "Engaging with the local community through meaningful service projects that foster empathy and social responsibility.",
-    image: "/assets/student-life-4.jpg", // Replace with your image path
-  },
+ 
 ];
 
 export default function StudentLifeSection() {
@@ -130,7 +124,7 @@ export default function StudentLifeSection() {
                 className="min-w-[85%] sm:min-w-[45%] lg:min-w-[31%] snap-center flex flex-col group cursor-pointer"
               >
                 {/* IMAGE CARD */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden mb-6 bg-gray-100">
+                <div className="relative w-full aspect-4/3 overflow-hidden mb-6 bg-gray-100">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -140,7 +134,7 @@ export default function StudentLifeSection() {
                 </div>
 
                 {/* TEXT CONTENT */}
-                <div className="flex flex-col flex-grow">
+                <div className="flex flex-col grow">
                   <span className="text-sm font-bold tracking-[0.5em] text-brand-secondary uppercase mb-5">
                     {item.category}
                   </span>
@@ -154,7 +148,7 @@ export default function StudentLifeSection() {
                   </p>
 
                   {/* BOTTOM LINE (Animated) */}
-                  <div className="mt-auto w-full h-[1px] bg-brand-secondary/30 relative">
+                  <div className="mt-auto w-full h-px bg-brand-secondary/30 relative">
                     <span className="absolute top-0 left-0 h-full w-0 bg-brand-secondary transition-all duration-500 group-hover:w-full" />
                   </div>
                 </div>

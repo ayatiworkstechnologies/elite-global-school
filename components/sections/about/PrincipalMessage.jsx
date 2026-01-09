@@ -27,12 +27,10 @@ export default function PrincipalMessage() {
       </div>
 
       {/* --- MAIN CONTAINER --- */}
-      {/* Everything is strictly inside this container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* === CONTENT COLUMN === */}
-          {/* Mobile: Order 1 (First) | Desktop: Order 2 (Right Side) */}
           <div className="text-white order-1 lg:order-2">
             
             {/* Tagline */}
@@ -82,41 +80,40 @@ export default function PrincipalMessage() {
               <h4 className="text-lg font-bold tracking-[0.4em] text-white uppercase">
                 Dr. Eleanor Vance.
               </h4>
-              <span className="text-sm font-medium tracking-[0.4em] text-ehite uppercase ">
+              <span className="text-sm font-medium tracking-[0.4em] text-white uppercase ">
                 Principal
               </span>
             </motion.div>
           </div>
 
           {/* === IMAGE CARD COLUMN === */}
-          {/* Mobile: Order 2 (Second) | Desktop: Order 1 (Left Side) */}
           <div className="relative flex justify-center lg:justify-end order-2 lg:order-1 mt-8 lg:mt-0">
-            {/* The Image Card Container - strictly inside the grid column */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative z-10 bg-[#fba953] p-0 w-full md:mt-20 max-w-[340px] sm:max-w-[400px] h-[450px] sm:h-[500px] shadow-2xl overflow-hidden rounded-sm"
+              // Removed h-full/w-full constraints so div wraps the image naturally
+              className="relative z-10 w-full max-w-md lg:max-w-full md:mt-20"
             >
-              {/* Image */}
-              <div className="relative w-full h-full overflow-hidden">
-                <motion.div
-                  className="w-full h-full"
-                  whileHover={{ scale: 1.05 }}
+               <motion.div
+                  whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.5 }}
-                >
+                  className="relative"
+               >
+                  {/* 1. Removed `fill`
+                     2. Added `width` and `height` (Aspect Ratio will be preserved)
+                     3. Added `h-auto w-full` to make it responsive
+                  */}
                   <Image
-                    src="/assets/principal.jpg"
+                    src="/assets/princpal.png"
                     alt="Principal Dr. Eleanor Vance"
-                    fill
-                    className="object-cover object-top"
+                    width={600}  // Set this to the actual width of your image (or higher)
+                    height={800} // Set this to the actual height of your image
+                    className="w-full h-auto object-contain"
                     priority
                   />
-                </motion.div>
-                {/* Gradient for depth */}
-                {/* <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" /> */}
-              </div>
+               </motion.div>
             </motion.div>
           </div>
 

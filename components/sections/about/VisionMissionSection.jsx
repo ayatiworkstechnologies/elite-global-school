@@ -107,9 +107,9 @@ export default function VisionMissionSection() {
                 <div 
                     className="absolute bg-brand-secondary/70
                     /* MOBILE: Horizontal line at bottom, centered, 80% width */
-                    bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px]
+                    bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-px
                     /* DESKTOP: Vertical line at right, centered, 60% height */
-                    md:top-1/2 md:right-0 md:bottom-auto md:left-auto md:-translate-y-1/2 md:w-[1px] md:h-[60%]"
+                    md:top-1/2 md:right-0 md:bottom-auto md:left-auto md:-translate-y-1/2 md:w-px md:h-[60%]"
                 />
               </div>
 

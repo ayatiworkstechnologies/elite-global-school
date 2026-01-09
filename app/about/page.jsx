@@ -15,9 +15,10 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-    <MainHero
+      <MainHero
         title="About"
-        image="/assets/about-group.jpg"
+        imageDesktop="/banner/about-banner.png"
+        imageMobile="/banner/about-banner-mob.png"
       />
       <PrincipalMessage />
       <VisionMissionSection />
