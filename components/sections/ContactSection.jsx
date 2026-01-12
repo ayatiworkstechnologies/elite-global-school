@@ -20,7 +20,7 @@ export default function ContactSection() {
 
   return (
     <section className="relative w-full section-lg min-h-screen bg-white overflow-hidden flex items-center justify-center py-20 lg:py-0">
-      
+
       {/* --- BACKGROUND DECORATION --- */}
       {/* Uses brand-primary (Dark Blue) for the split background */}
       <div className="hidden lg:block absolute top-0 right-0 w-[35%] h-full bg-brand-accent z-0" />
@@ -48,31 +48,29 @@ export default function ContactSection() {
 
             {/* Form */}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 mb-12">
-              
+
               {/* Name Field */}
               <div>
                 <input
                   {...register("name", { required: true })}
                   type="text"
                   placeholder="Name *"
-                  className={`w-full px-4 py-3 border ${
-                    errors.name ? 'border-red-500' : 'border-gray-200'
-                  } rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-brand-secondary transition-colors`}
+                  className={`w-full px-4 py-3 border ${errors.name ? 'border-red-500' : 'border-gray-200'
+                    } rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-brand-secondary transition-colors`}
                 />
               </div>
 
               {/* Email Field */}
               <div>
                 <input
-                  {...register("email", { 
+                  {...register("email", {
                     required: true,
-                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i 
+                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
                   })}
                   type="email"
                   placeholder="Email"
-                  className={`w-full px-4 py-3 border ${
-                    errors.email ? 'border-red-500' : 'border-gray-200'
-                  } rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-brand-secondary transition-colors`}
+                  className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-200'
+                    } rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-brand-secondary transition-colors`}
                 />
               </div>
 
@@ -82,9 +80,8 @@ export default function ContactSection() {
                   {...register("phone", { required: true })}
                   type="tel"
                   placeholder="Phone number *"
-                  className={`w-full px-4 py-3 border ${
-                    errors.phone ? 'border-red-500' : 'border-gray-200'
-                  } rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-brand-secondary transition-colors`}
+                  className={`w-full px-4 py-3 border ${errors.phone ? 'border-red-500' : 'border-gray-200'
+                    } rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-brand-secondary transition-colors`}
                 />
               </div>
 
@@ -98,7 +95,7 @@ export default function ContactSection() {
 
             {/* Contact Details */}
             <div className="space-y-6 text-gray-600 text-lg font-medium">
-              
+
               {/* Phone */}
               <div className="flex items-center gap-4 group">
                 <div className="w-5 h-5 text-brand-secondary">
@@ -114,8 +111,8 @@ export default function ContactSection() {
                 <div className="w-5 h-5 text-brand-secondary">
                   <Mail size={20} strokeWidth={1.5} />
                 </div>
-                <a 
-                  href="mailto:info@eliteglobalschools.com" 
+                <a
+                  href="mailto:info@eliteglobalschools.com"
                   className="hover:text-brand-secondary transition-colors"
                 >
                   info@eliteglobalschools.com
@@ -143,19 +140,19 @@ export default function ContactSection() {
             viewport={{ once: true }}
             className="relative w-full h-[400px] lg:h-[600px] shadow-2xl bg-gray-100 rounded-sm overflow-hidden group"
           >
-             <iframe 
-               width="100%" 
-               height="100%" 
-               title="Elite Global School Location"
-               className="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
-               loading="lazy" 
-               allowFullScreen 
-               referrerPolicy="no-referrer-when-downgrade"
-               // Used a generic embed for Villivakkam, Chennai to ensure it renders something valid
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.000287405232!2d80.2078!3d13.1147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e37a76057f%3A0x685519632837340!2sVillivakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-             >
-             </iframe>
-               </motion.div>
+            <iframe
+              width="100%"
+              height="100%"
+              title="Elite Global School Location"
+              className="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              // Used a generic embed for Villivakkam, Chennai to ensure it renders something valid
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31087.665678936897!2d80.199034!3d13.101834!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52651337384f67%3A0xe7a322331f3c198f!2sElite%20Global%20Nursery%20%26%20Primary%20CBSE%20School!5e0!3m2!1sen!2sin!4v1768222730521!5m2!1sen!2sin"            >
+            </iframe>
+            {/* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31087.665678936897!2d80.199034!3d13.101834!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52651337384f67%3A0xe7a322331f3c198f!2sElite%20Global%20Nursery%20%26%20Primary%20CBSE%20School!5e0!3m2!1sen!2sin!4v1768222730521!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+          </motion.div>
 
         </div>
       </div>

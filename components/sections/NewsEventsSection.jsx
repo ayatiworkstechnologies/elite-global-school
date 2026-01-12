@@ -22,7 +22,7 @@ Alhamdulillah, this is the third year of this programme, where we had a huge num
     description_1: "For More Details Click the button below to join the group", 
     ctaText: "Join Group",
     image: "/assets/news-img-1.png", 
-    ctaLink: "/news-events/stars-of-ramadhan",
+    ctaLink: "https://chat.whatsapp.com/DQAg6bYbsmtBURipaSACTY",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ Karate.`,
     ],
     ctaText: "Join Group",
     image: "/assets/news-img-2.png", 
-    ctaLink: "/news-events/sports-camp",
+    ctaLink: "https://chat.whatsapp.com/HomDoAnqvdfGQ8XDoqPggN",
   },
   {
     id: 3,
@@ -55,7 +55,7 @@ Karate.`,
     ],
     ctaText: "Join Group",
     image: "/assets/news-img-3.png", 
-    ctaLink: "/news-events/iq-camp",
+    ctaLink: "https://chat.whatsapp.com/GwaWSFj6wVd7GAngnyHkvo",
   },
 ];
 

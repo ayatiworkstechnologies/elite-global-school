@@ -114,7 +114,7 @@ export default function FacilitiesSection() {
                     }`}
                   />
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-500 ${
+                    className={`absolute inset-0 duration-500 ${
                       isActive ? "opacity-90" : "opacity-70"
                     }`}
                   ></div>
@@ -187,8 +187,8 @@ export default function FacilitiesSection() {
       </div>
 
       {/* --- BACKGROUND WATERMARK --- */}
-      <div className="absolute -bottom-[5%] -right-[5%] pointer-events-none select-none z-0">
-        <span className="text-[12rem] md:text-[18rem] lg:text-[24rem] font-bold text-gray-100/80 leading-none block">
+      <div className="absolute bottom-[1%] -right-[1%]  pointer-events-none select-none z-0">
+        <span className="text-5xl md:text-5xl lg:text-9xl font-bold text-gray-100/80 leading-none block">
           Sport
         </span>
       </div>
