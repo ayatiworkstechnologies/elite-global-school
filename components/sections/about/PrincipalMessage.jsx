@@ -106,7 +106,7 @@ export default function PrincipalMessage() {
                      3. Added `h-auto w-full` to make it responsive
                   */}
                   <Image
-                    src="/assets/princpal.png"
+                    src="/assets/principal.png"
                     alt="Principal Dr. Eleanor Vance"
                     width={600}  // Set this to the actual width of your image (or higher)
                     height={800} // Set this to the actual height of your image
