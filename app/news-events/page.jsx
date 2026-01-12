@@ -1,0 +1,27 @@
+import MainHero from "@/components/MainHero";
+import CoreValuesSection from "@/components/sections/about/CoreValuesSection";
+import PrincipalMessage from "@/components/sections/about/PrincipalMessage";
+import StudentLifeSection from "@/components/sections/about/StudentLifeSection";
+import VisionMissionSection from "@/components/sections/about/VisionMissionSection";
+import NewsEventsSection from "@/components/sections/NewsEventsSection";
+
+/* =========================
+   METADATA
+========================= */
+export const metadata = {
+  title: "News & Events | Elite Global School ",
+  description: "A place where every learner is meant to be a star",
+};
+
+export default function NewsAndEventsPage() {
+  return (
+    <>
+      <MainHero
+        title="News & Events"
+        imageDesktop="/banner/news-banner.png"
+        imageMobile="/banner/news-banner-mob.png"
+      />
+      <NewsEventsSection />
+    </>
+  );
+}
