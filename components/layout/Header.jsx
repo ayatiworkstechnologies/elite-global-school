@@ -12,7 +12,8 @@ const NAV_ITEMS = [
   { label: "About Us", href: "/about" },
   { label: "Sports Academy", href: "/sports-academy" },
   { label: "Gallery", href: "/gallery" },
-  { label: "News & Events", href: "/news-events" },
+  { label: "FeeStructure ", href: "/feestructure" },
+  // { label: "News & Events", href: "/news-events" },
   { label: "Contact Us", href: "/contact" },
 ];
 

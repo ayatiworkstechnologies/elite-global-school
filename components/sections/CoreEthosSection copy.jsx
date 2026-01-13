@@ -89,7 +89,9 @@ export default function CoreEthosSection() {
     restDelta: 0.001,
   });
 
-  /* HEADER HIDE LOGIC */
+  /* --- HEADER HIDE LOGIC --- */
+  // This will make the header fade out and move up 
+  // between 0% and 5% of the total section scroll.
   const headerOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
   const headerY = useTransform(scrollYProgress, [0, 0.05], [0, -50]);
 
@@ -99,11 +101,10 @@ export default function CoreEthosSection() {
   /* PARALLAX BACKGROUND */
   const bgX = useTransform(smoothProgress, [0, 1], ["0%", "20%"]);
 
-  /* --- FOOTBALL PHYSICS (Adjusted for Top Position) --- */
-  const ballX = useTransform(smoothProgress, [0, 1], ["0%", "88%"]);
-  const ballRotate = useTransform(smoothProgress, [0, 1], [0, 1800]); 
-  // Adjusted Y bounce to be tighter for top-alignment
-  const ballY = useTransform(smoothProgress, (latest) => Math.sin(latest * 15) * 40); 
+  /* FOOTBALL PHYSICS */
+  const ballX = useTransform(smoothProgress, [0, 1], ["0%", "85%"]);
+  const ballRotate = useTransform(smoothProgress, [0, 1], [0, 1440]); 
+  const ballY = useTransform(smoothProgress, (latest) => Math.sin(latest * 18) * 50); 
 
   const goNext = () => {
     if (!sectionRef.current) return;
@@ -122,7 +123,7 @@ export default function CoreEthosSection() {
     >
       <div className="sticky top-0 h-[100dvh] overflow-hidden">
         
-        {/* DYNAMIC BACKGROUND PATTERN */}
+        {/* --- DYNAMIC BACKGROUND PATTERN --- */}
         <motion.div style={{ x: bgX }} className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
              <div className="w-[150vw] h-full" style={{
                 backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
@@ -130,7 +131,7 @@ export default function CoreEthosSection() {
              }}></div>
         </motion.div>
 
-        {/* HEADER */}
+        {/* --- HEADER (Updated to hide on scroll) --- */}
         <motion.div 
           style={{ opacity: headerOpacity, y: headerY }}
           className="absolute top-4 sm:top-6 left-0 right-0 z-50 text-center pointer-events-none px-4"
@@ -143,32 +144,28 @@ export default function CoreEthosSection() {
             </h2>
         </motion.div>
 
-        {/* --- THE BALL (Moved to Top Section) --- */}
+        {/* --- THE BALL --- */}
         <motion.div
-          className="absolute top-[12%] sm:top-[15%] left-[5%] sm:left-[8%] z-40 pointer-events-none"
+          className="absolute top-[35%] lg:top-[40%] left-[5%] sm:left-[10%] z-40 pointer-events-none"
           style={{ x: ballX, y: ballY }}
         >
             <motion.button
               onClick={goNext}
               className="relative pointer-events-auto z-10"
               style={{ rotate: ballRotate }}
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="w-20 h-20 sm:w-23 sm:h-23 rounded-full shadow-2xl relative overflow-hidden">
-                <Image src="/assets/ball.png" alt="Football" fill className="object-contain" priority />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full shadow-2xl relative overflow-hidden">
+              <Image src="/assets/ball.png" alt="Football" fill className="object-contain" priority />
               </div>
             </motion.button>
-            {/* Dynamic Shadow */}
-            <motion.div 
-              className="absolute inset-0 w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-black/10 blur-lg -z-10" 
-              style={{ scale: useTransform(ballY, [-40, 40], [0.8, 1.2]), opacity: useTransform(ballY, [-40, 40], [0.2, 0.5]) }} 
-            />
+            <motion.div className="absolute inset-0 w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-black/5 blur-md -z-10" style={{ x: -10 }} />
         </motion.div>
 
-        {/* TRACK */}
+        {/* --- TRACK --- */}
         <motion.div style={{ x }} className="flex h-full">
-          {ITEMS.map((item) => (
+          {ITEMS.map((item, index) => (
             <div key={item.no} className="min-w-full h-full flex items-center justify-center px-4 md:px-12 relative">
               <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
@@ -178,8 +175,8 @@ export default function CoreEthosSection() {
                      {item.no}
                    </div>
 
-                   <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} className="relative pl-2 md:mt-7">
-                     <div className="overflow-hidden mb-2  sm:mb-4">
+                   <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} className="relative pl-2">
+                     <div className="overflow-hidden mb-2 sm:mb-4">
                         <motion.div variants={maskTextVariants}>
                             <span className="px-3 py-1 rounded-full text-brand-secondary text-xs sm:text-md font-bold uppercase tracking-widest bg-white/50 backdrop-blur-sm border border-gray-100">
                                 {item.tag}

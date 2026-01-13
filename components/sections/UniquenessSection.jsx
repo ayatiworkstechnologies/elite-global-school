@@ -46,7 +46,7 @@ export default function UniquenessSection() {
           viewport={{ once: true }}
           className="text-center mb-16 lg:mb-20 max-w-4xl mx-auto"
         >
-          <span className="text-sm sm:text-lg tracking-widest text-text-muted uppercase">
+          <span className="text-sm sm:text-lg tracking-widest text-brand-secondary uppercase">
             Why Elite Global School?
           </span>
           <h2 className="mt-4 font-primary font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-primary">
