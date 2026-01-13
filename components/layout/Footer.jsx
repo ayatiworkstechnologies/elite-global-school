@@ -89,10 +89,10 @@ export default function Footer() {
         {/* SOCIAL */}
         <FooterColumn title="Follow Us" delay={0.3}>
           <div className="flex items-center gap-4 mt-2">
-            <SocialIcon Icon={FaFacebookF} />
-            <SocialIcon Icon={FaInstagram} />
-            <SocialIcon Icon={FaLinkedinIn} />
-            <SocialIcon Icon={FaYoutube} />
+            <SocialIcon Icon={FaFacebookF} href="https://facebook.com/EliteGlobalSchools/" />
+            <SocialIcon Icon={FaInstagram} href="https://instagram.com/elite_global_schools_official/" />
+            <SocialIcon Icon={FaLinkedinIn} href="https://linkedin.com/company/elite-global-school" />
+            <SocialIcon Icon={FaYoutube} href="https://youtube.com/@EliteGlobalSchool" />
           </div>
         </FooterColumn>
       </div>
@@ -127,6 +127,23 @@ function FooterColumn({ title, children, delay }) {
   );
 }
 
+function SocialIcon ({ Icon, href }) {
+return (
+ <motion.a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ y: -3, scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-brand-secondary hover:bg-brand-primary hover:text-white transition-all duration-300"
+  >
+    <Icon size={20} />
+  </motion.a>
+  );
+}
+  
+
+
 function FooterLink({ href, children }) {
   return (
     <Link
@@ -138,21 +155,4 @@ function FooterLink({ href, children }) {
   );
 }
 
-function SocialIcon({ Icon }) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.15 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="
-        w-8 h-8 rounded-sm
-        flex items-center justify-center
-        bg-white text-brand-secondary
-        hover:bg-brand-primary hover:text-white
-        transition-colors
-        cursor-pointer
-      "
-    >
-      <Icon size={18} />
-    </motion.div>
-  );
-}
+
