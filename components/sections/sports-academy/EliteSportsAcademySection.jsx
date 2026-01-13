@@ -9,30 +9,25 @@ const programs = [
   {
     id: 1,
     title: "Football",
-    image: "/assets/sports-img-1.png", 
+    image: "/assets/img-1.webp", 
     description:
       "Comprehensive tactical and physical training for offensive and defensive positions.",
   },
   {
     id: 2,
     title: "KARATE TRAINING",
-    image: "/assets/sports-img-2.png", 
+    image: "/assets/img-2.webp", 
     description:
       "Focus on skill development, game IQ, and strength conditioning for all court positions.",
   },
   {
     id: 3,
     title: "SILAMBAM TRAINING",
-    image: "/assets/sports-img-3.png", 
+    image: "/assets/img-3.webp", 
     description:
       "Clay and hard court training focused on technique, agility, and mental toughness.",
   },
-  {
-    id: 4,
-    title: "Swimming",
-    image: "/images/swimming-kid.jpg",
-    description: "Build endurance, strength, and cardiovascular health in our state-of-the-art pool.",
-  },
+  
 ];
 
 export default function EliteSportsAcademySection() {
@@ -90,7 +85,7 @@ export default function EliteSportsAcademySection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-secondary tracking-[0.2em] uppercase text-sm font-semibold block mb-4"
+            className="text-brand-secondary tracking-[0.4em] uppercase text-sm font-semibold block mb-4"
           >
             Elite Sports Academy
           </motion.span>
@@ -159,7 +154,7 @@ export default function EliteSportsAcademySection() {
                     {/* Content */}
                     <div className="grow flex flex-col justify-between px-2">
                       <div>
-                        <h3 className="text-xl font-bold text-brand-primary uppercase mb-3">
+                        <h3 className="text-xl font-bold tracking-[0.3em] text-brand-primary uppercase mb-3">
                           {program.title}
                         </h3>
                         <p className="text-gray-600 leading-relaxed text-sm md:text-base">

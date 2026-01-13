@@ -19,7 +19,7 @@ export default function PhilosophySection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Delays each child animation for a smooth flow
+        staggerChildren: 0.2,
       },
     },
   };
@@ -46,19 +46,24 @@ export default function PhilosophySection() {
             viewport={{ once: true, margin: "-100px" }}
             variants={imageReveal}
           >
-            
-            {/* Image Container */}
-            <div className="relative z-10 w-full h-150 overflow-hidden ">
+            {/* FIX: Removed h-150. 
+                Using aspect-auto or a defined aspect ratio (like aspect-[4/3]) 
+                ensures the container scales with the actual image.
+            */}
+            <div className="relative z-10 w-full aspect-auto min-h-[300px] md:min-h-[500px] overflow-hidden rounded-2xl">
               <Image
-                src="/assets/philosophy.png" // Ensure this path is correct
+                src="/assets/philosophy.png"
                 alt="Kids holistic training"
                 fill
-                className=""
+                className="object-contain" // Ensures the whole image is visible without cropping
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
 
-                    </motion.div>
+            {/* Subtle decorative glow to fill space if img is transparent */}
+            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-brand-secondary/5 rounded-full blur-3xl -z-10"></div>
+          </motion.div>
 
           {/* RIGHT COLUMN: Content */}
           <motion.div
@@ -67,11 +72,9 @@ export default function PhilosophySection() {
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            {/* Eyebrow Text with Line */}
             <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-4">
-              {/* The horizontal line next to text */}
               <span className="w-12 h-0.5 bg-brand-secondary"></span> 
-              <span className="text-sm tracking-[0.25em] text-brand-secondary font-bold uppercase">
+              <span className="text-sm tracking-[0.4em] text-brand-secondary font-bold uppercase">
                 Our Philosophy
               </span>
             </motion.div>
@@ -93,7 +96,6 @@ export default function PhilosophySection() {
               and professional careers.
             </motion.p>
 
-            {/* List Items */}
             <ul className="space-y-5">
               {[
                 "Personalized athletic development plans",
@@ -106,8 +108,7 @@ export default function PhilosophySection() {
                   className="flex items-start gap-3"
                 >
                   <span className="text-brand-secondary text-xl leading-none mt-0.5">•</span>
-                  {/* Uppercase and Bold to match the image */}
-                  <span className="font-extrabold text-gray-800 uppercase tracking-wide text-xs md:text-sm">
+                  <span className="font-extrabold text-gray-800 uppercase tracking-[0.4em] text-xs md:text-sm">
                     {item}
                   </span>
                 </motion.li>

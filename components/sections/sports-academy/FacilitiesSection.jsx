@@ -133,7 +133,7 @@ export default function FacilitiesSection() {
                         transition={{ duration: 0.4 }}
                         className="w-full"
                       >
-                        <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-wider mb-2">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-[0.4em] mb-2">
                           {facility.title}
                         </h3>
                         <p className="text-brand-secondary font-semibold mb-3 text-sm tracking-wide">
@@ -172,7 +172,7 @@ export default function FacilitiesSection() {
                         // CORRECTION: Absolute positioning with origin-bottom-left ensures it starts at bottom and reads up
                         className="absolute bottom-10 left-8 origin-bottom-left -rotate-90 whitespace-nowrap"
                       >
-                        <h3 className="text-2xl font-bold text-white uppercase tracking-wider">
+                        <h3 className="text-2xl font-bold text-white uppercase tracking-[0.2em]">
                           {facility.title}
                         </h3>
                       </motion.div>
