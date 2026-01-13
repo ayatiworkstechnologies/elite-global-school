@@ -27,6 +27,27 @@ const programs = [
     description:
       "Clay and hard court training focused on technique, agility, and mental toughness.",
   },
+  {
+    id: 4,
+    title: "CRICKET TRAINING",
+    image: "/assets/img-1.webp", 
+    description:
+      "Comprehensive coaching covering batting stance, bowling action, and fielding drills to master the gentleman's game.",
+  },
+  {
+    id: 5, // Unique ID
+    title: "CHESS TRAINING",
+    image: "/assets/img-2.webp", 
+    description:
+      "Strategic mental conditioning focused on opening theories, tactical patterns, and endgame proficiency.",
+  },
+  {
+    id: 6, // Unique ID (changed from 5 to 6)
+    title: "TABLE TENNIS TRAINING",
+    image: "/assets/img-3.webp", 
+    description:
+      "High-speed training designed to improve hand-eye coordination, reflex speed, and advanced paddle spin techniques.",
+  },
   
 ];
 

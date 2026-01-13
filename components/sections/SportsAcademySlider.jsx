@@ -19,6 +19,9 @@ const IMAGES = [
   { src: "/assets/img-1.webp", label: "FOOTBALL TRAINING" },
   { src: "/assets/img-2.webp", label: "KARATE TRAINING" },
   { src: "/assets/img-3.webp", label: "SILAMBAM TRAINING" },
+  { src: "/assets/img-3.webp", label: "CRICKET TRAINING" },
+  { src: "/assets/img-3.webp", label: "CHESS TRAINING" },
+  { src: "/assets/img-3.webp", label: "TABLE TENNIS TRAINING" }
 ];
 
 export default function SportsAcademyCard() {
