@@ -5,7 +5,7 @@ import FeeStructure from "@/components/sections/FeeStructure";
    METADATA
 ========================= */
 export const metadata = {
-  title: "Fee Structures | Elite Global School ",
+  title: "Admission | Elite Global School ",
   description: "A place where every learner is meant to be a star",
 };
 
