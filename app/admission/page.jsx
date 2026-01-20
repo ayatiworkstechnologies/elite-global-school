@@ -13,7 +13,7 @@ export default function FeeStructurePage() {
   return (
     <>
       <MainHero
-        title="Fee Structure"
+        title="Admission & Fee Structure"
         imageDesktop="/banner/news-banner.png"
         imageMobile="/banner/news-banner-mob.png"
       />
