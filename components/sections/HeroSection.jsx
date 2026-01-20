@@ -3,171 +3,143 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+// Separate assets for Desktop and Mobile for better performance/framing
 const SLIDES = [
-  "/banner/elite.jpg",
-  "/banner/elite.jpg",
-  "/banner/elite.jpg",
+  { desktop: "/banner/banner-3.jpg", mobile: "/banner/banner-3-mob.jpg" },
+  { desktop: "/banner/banner-2.jpg", mobile: "/banner/banner-2-mob.jpg" },
+  { desktop: "/banner/banner-1.jpg", mobile: "/banner/banner-1-mob.jpg" },
 ];
 
-/* --- ANIMATION VARIANTS --- */
-
-// 1. The Panel Slide Animation (Curtain Effect)
-const panelVariants = {
-  hiddenTop: { y: "-100%" },
-  hiddenBottom: { y: "100%" },
-  visible: { 
-    y: "0%",
-    transition: { 
-      duration: 1.2, 
-      ease: [0.76, 0, 0.24, 1], // Premium "ease-in-out" feel
-    }
-  }
-};
-
-// 2. Container for text to control staggering
-const contentContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { 
-      delayChildren: 0.6, // Wait for panel to slide in halfway
-      staggerChildren: 0.1, // Time between each word appearing
-    }
-  }
-};
-
-// 3. Individual Word Animation
-const wordVariants = {
-  hidden: { y: 50, opacity: 0, rotateX: 45 },
-  visible: { 
-    y: 0, 
-    opacity: 1, 
-    rotateX: 0,
-    transition: { 
-      duration: 0.8, 
-      ease: "easeOut" 
-    }
-  }
-};
-
-// 4. Image Slider Animation (Zoom Out Effect)
-const imageVariants = {
-  enter: { scale: 1.2, opacity: 0 },
-  center: { 
-    scale: 1, 
-    opacity: 1, 
-    transition: { duration: 1.2, ease: "easeOut" } 
+/* --- MODERN TRANSITION VARIANTS --- */
+const slideVariants = {
+  enter: (direction) => ({
+    clipPath: direction > 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
+    scale: 1.2,
+    filter: "blur(10px)",
+  }),
+  center: {
+    clipPath: "inset(0 0 0 0%)",
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      clipPath: { duration: 1.1, ease: [0.77, 0, 0.175, 1] },
+      scale: { duration: 1.8, ease: "easeOut" },
+      filter: { duration: 1 },
+    },
   },
-  exit: { 
-    scale: 1, 
-    opacity: 0, 
-    transition: { duration: 0.8 } 
-  }
+  exit: (direction) => ({
+    clipPath: direction < 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
+    scale: 1.1,
+    transition: { duration: 1.1, ease: [0.77, 0, 0.175, 1] },
+  }),
 };
 
-export default function HeroSection({
-  title = "Elite Global School",
-  rightTitle = "Global Excellence",
-  rightDesc = "Inspiring young minds with quality education and strong values.",
-}) {
-  const [index, setIndex] = useState(0);
+export default function HeroSlider() {
+  const [[page, direction], setPage] = useState([0, 0]);
+  const [isMobile, setIsMobile] = useState(false);
 
-  /* AUTO SLIDE */
+  const index = Math.abs(page % SLIDES.length);
+
+  // Handle Mobile detection
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((p) => (p + 1) % SLIDES.length);
-    }, 4500);
-    return () => clearInterval(timer);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const paginate = (newDirection) => {
+    setPage([page + newDirection, newDirection]);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => paginate(1), 5000);
+    return () => clearInterval(timer);
+  }, [page]);
+
   return (
-    // 'h-[85vh]' ensures it takes up most of the screen but leaves room for content below
-    <section className="w-full h-auto lg:h-[88vh] grid grid-cols-1 lg:grid-cols-[28%_44%_28%] overflow-hidden bg-white">
-
-      {/* ================= LEFT PANEL (Top -> Bottom) ================= */}
-      <motion.div
-        variants={panelVariants}
-        initial="hiddenTop"
-        animate="visible"
-        className="relative bg-brand-primary flex flex-col justify-center px-6 py-12 lg:px-10 order-2 lg:order-1 z-10"
-      >
-        <motion.div 
-            variants={contentContainerVariants}
-            initial="hidden"
-            animate="visible"
+    <section className="relative w-full h-[100dvh] overflow-hidden bg-neutral-950">
+      {/* 1. THE MAIN IMAGE CAROUSEL */}
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        <motion.div
+          key={page}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          className="absolute inset-0 w-full h-full"
         >
-            <h1 className="font-primary text-white text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tight text-center lg:text-left">
-            {title.split(" ").map((word, i) => (
-                <span key={i} className="inline-block overflow-hidden mr-3 lg:mr-0 lg:block mb-2">
-                    <motion.span
-                        variants={wordVariants}
-                        className="block"
-                    >
-                        {word}
-                    </motion.span>
-                </span>
-            ))}
-            </h1>
-        </motion.div>
-      </motion.div>
-
-      {/* ================= CENTER IMAGE (Slider) ================= */}
-      <div className="relative h-[50vh] lg:h-full overflow-hidden order-1 lg:order-2 bg-gray-900">
-        <AnimatePresence mode="popLayout">
           <motion.img
-            key={index}
-            src={SLIDES[index]}
-            variants={imageVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            className="absolute inset-0 w-full h-full object-cover"
-            alt="Hero Banner"
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1.05 }}
+            transition={{ duration: 6, ease: "linear" }}
+            // Automatically switches source based on screen size
+            src={isMobile ? SLIDES[index].mobile : SLIDES[index].desktop}
+            className="w-full h-full"
+            alt={`Banner ${index + 1}`}
+            priority={index === 0} // SEO/LCP optimization
           />
-        </AnimatePresence>
-        
-        {/* Subtle Overlay for better contrast if needed */}
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* 2. NAVIGATION OVERLAY (Click Sides to Navigate) */}
+      <div className="absolute inset-0 z-20 flex">
+        <div
+          className="flex-1 cursor-none md:cursor-west-resize group relative"
+          onClick={() => paginate(-1)}
+        >
+          {/* Subtle hover effect for desktop */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
+        <div
+          className="flex-1 cursor-none md:cursor-east-resize group relative"
+          onClick={() => paginate(1)}
+        >
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
       </div>
 
-      {/* ================= RIGHT PANEL (Bottom -> Top) ================= */}
-      <motion.div
-        variants={panelVariants}
-        initial="hiddenBottom"
-        animate="visible"
-        className="relative bg-brand-secondary flex flex-col justify-center px-6 py-12 lg:px-8 text-white order-3 z-10"
-      >
-        <motion.div 
-            variants={contentContainerVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-center lg:items-start"
-        >
-            {/* Decorative Line */}
-            <motion.span variants={wordVariants} className="w-12 h-1.5 mb-6 bg-white block" />
-
-            {/* Title */}
-            <h2 className="font-primary font-light text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6 tracking-wide leading-[1.1] text-center lg:text-left">
-                {rightTitle.split(" ").map((word, i) => (
-                    <span key={i} className="inline-block overflow-hidden mr-2">
-                        <motion.span variants={wordVariants} className="block">
-                            {word}
-                        </motion.span>
-                    </span>
-                ))}
-            </h2>
-
-            {/* Description */}
-            <motion.p
-                variants={wordVariants}
-                className="font-secondary text-sm lg:text-base text-white/90 max-w-xs leading-relaxed text-center lg:text-left"
+      {/* 3. MODERN PAGINATION (Slide Numbers + Bars) */}
+      <div className="absolute bottom-10 left-6 right-6 md:left-12 md:right-12 z-30 flex items-end justify-between pointer-events-none">
+        <div className="flex gap-2 pointer-events-auto">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage([i, i > index ? 1 : -1])}
+              className="relative py-4"
             >
-                {rightDesc}
-            </motion.p>
+              <div
+                className={`h-[2px] transition-all duration-700 ${
+                  i === index ? "w-12 bg-white" : "w-6 bg-white/30"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
 
-        </motion.div>
-      </motion.div>
+        {/* Dynamic Slide Counter */}
+        <div className="text-white font-light text-2xl md:text-4xl tracking-tighter tabular-nums">
+          <span className="font-bold">0{index + 1}</span>
+          <span className="text-white/30 mx-2">/</span>
+          <span className="text-white/30 text-xl md:text-2xl">
+            0{SLIDES.length}
+          </span>
+        </div>
+      </div>
 
+      {/* 4. TOP PROGRESS LOADER */}
+      <div className="absolute top-0 left-0 w-full z-40 flex h-[2px]">
+        <div className="flex-1 bg-white/5 relative">
+          <motion.div
+            key={page}
+            initial={{ x: "-100%" }}
+            animate={{ x: "0%" }}
+            transition={{ duration: 5, ease: "linear" }}
+            className="absolute inset-0 bg-white shadow-[0_0_15px_rgba(255,255,255,1)]"
+          />
+        </div>
+      </div>
     </section>
   );
 }
