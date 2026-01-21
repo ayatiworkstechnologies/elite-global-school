@@ -2,35 +2,47 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
-// Separate assets for Desktop and Mobile for better performance/framing
 const SLIDES = [
   { desktop: "/banner/banner-3.jpg", mobile: "/banner/banner-3-mob.jpg" },
   { desktop: "/banner/banner-2.jpg", mobile: "/banner/banner-2-mob.jpg" },
   { desktop: "/banner/banner-1.jpg", mobile: "/banner/banner-1-mob.jpg" },
 ];
 
-/* --- MODERN TRANSITION VARIANTS --- */
+/* --- PAPER ROUND ROTATE ANIMATION --- */
 const slideVariants = {
   enter: (direction) => ({
     clipPath: direction > 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
-    scale: 1.2,
-    filter: "blur(10px)",
+    // 3D Rotation like a page
+    rotateY: direction > 0 ? 45 : -45,
+    scale: 1.1,
+    opacity: 0,
+    transformOrigin: direction > 0 ? "right center" : "left center",
   }),
   center: {
     clipPath: "inset(0 0 0 0%)",
+    rotateY: 0,
     scale: 1,
-    filter: "blur(0px)",
+    opacity: 1,
     transition: {
-      clipPath: { duration: 1.1, ease: [0.77, 0, 0.175, 1] },
-      scale: { duration: 1.8, ease: "easeOut" },
-      filter: { duration: 1 },
+      clipPath: { duration: 1.2, ease: [0.77, 0, 0.175, 1] },
+      rotateY: { duration: 1.4, ease: [0.25, 1, 0.5, 1] },
+      scale: { duration: 1.4, ease: [0.25, 1, 0.5, 1] },
+      opacity: { duration: 0.5 }
     },
   },
   exit: (direction) => ({
     clipPath: direction < 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
-    scale: 1.1,
-    transition: { duration: 1.1, ease: [0.77, 0, 0.175, 1] },
+    // Rotate away like a paper being pulled
+    rotateY: direction < 0 ? 25 : -25,
+    scale: 0.9,
+    opacity: 0,
+    transition: {
+      clipPath: { duration: 1.1, ease: [0.77, 0, 0.175, 1] },
+      rotateY: { duration: 1.1 },
+      opacity: { duration: 0.8 }
+    },
   }),
 };
 
@@ -40,7 +52,6 @@ export default function HeroSlider() {
 
   const index = Math.abs(page % SLIDES.length);
 
-  // Handle Mobile detection
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -58,8 +69,10 @@ export default function HeroSlider() {
   }, [page]);
 
   return (
-    <section className="relative w-full h-[100dvh] overflow-hidden bg-neutral-950">
-      {/* 1. THE MAIN IMAGE CAROUSEL */}
+    // Perspective added to the container to make 3D rotations look real
+    <section className="relative w-full h-[100dvh] overflow-hidden bg-neutral-950 [perspective:1500px]">
+      
+      {/* 1. THE NEXT.JS IMAGE CAROUSEL */}
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
           key={page}
@@ -68,77 +81,71 @@ export default function HeroSlider() {
           initial="enter"
           animate="center"
           exit="exit"
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full will-change-transform"
         >
-          <motion.img
-            initial={{ scale: 1.15 }}
-            animate={{ scale: 1.05 }}
-            transition={{ duration: 6, ease: "linear" }}
-            // Automatically switches source based on screen size
+          <Image
             src={isMobile ? SLIDES[index].mobile : SLIDES[index].desktop}
-            className="w-full h-full"
             alt={`Banner ${index + 1}`}
-            priority={index === 0} // SEO/LCP optimization
+            fill
+            priority={index === 0}
+            quality={95}
+            className=""
+            sizes="100vw"
           />
+          {/* Subtle overlay to enhance the 3D depth during the turn */}
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
         </motion.div>
       </AnimatePresence>
 
-      {/* 2. NAVIGATION OVERLAY (Click Sides to Navigate) */}
+      {/* 2. INTERACTIVE SIDE CONTROLS */}
       <div className="absolute inset-0 z-20 flex">
-        <div
-          className="flex-1 cursor-none md:cursor-west-resize group relative"
-          onClick={() => paginate(-1)}
-        >
-          {/* Subtle hover effect for desktop */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
-        <div
-          className="flex-1 cursor-none md:cursor-east-resize group relative"
-          onClick={() => paginate(1)}
-        >
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
+        <div className="flex-1 cursor-west-resize" onClick={() => paginate(-1)} />
+        <div className="flex-1 cursor-east-resize" onClick={() => paginate(1)} />
       </div>
 
-      {/* 3. MODERN PAGINATION (Slide Numbers + Bars) */}
-      <div className="absolute bottom-10 left-6 right-6 md:left-12 md:right-12 z-30 flex items-end justify-between pointer-events-none">
-        <div className="flex gap-2 pointer-events-auto">
+      {/* 3. MINIMALIST PAGINATION */}
+      <div className="absolute bottom-12 left-8 right-8 z-30 flex items-center justify-between pointer-events-none">
+        <div className="flex gap-3 pointer-events-auto">
           {SLIDES.map((_, i) => (
             <button
               key={i}
               onClick={() => setPage([i, i > index ? 1 : -1])}
-              className="relative py-4"
+              className="group py-2"
             >
               <div
-                className={`h-[2px] transition-all duration-700 ${
-                  i === index ? "w-12 bg-white" : "w-6 bg-white/30"
+                className={`h-[3px] rounded-full transition-all duration-700 ${
+                  i === index
+                    ? "w-16 bg-brand-primary"
+                    : "w-6 bg-brand-primary/40 group-hover:bg-brand-primary/70"
                 }`}
               />
             </button>
           ))}
         </div>
 
-        {/* Dynamic Slide Counter */}
-        <div className="text-white font-light text-2xl md:text-4xl tracking-tighter tabular-nums">
-          <span className="font-bold">0{index + 1}</span>
-          <span className="text-white/30 mx-2">/</span>
-          <span className="text-white/30 text-xl md:text-2xl">
-            0{SLIDES.length}
-          </span>
+        {/* Cinematic Slide Counter */}
+        <div className="text-brand-primary flex items-baseline gap-2 overflow-hidden h-10">
+          <motion.span
+            key={index}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            className="text-4xl font-medium tracking-tighter"
+          >
+            0{index + 1}
+          </motion.span>
+          <span className="text-brand-primary/40 text-xl font-light">/ 0{SLIDES.length}</span>
         </div>
       </div>
 
-      {/* 4. TOP PROGRESS LOADER */}
-      <div className="absolute top-0 left-0 w-full z-40 flex h-[2px]">
-        <div className="flex-1 bg-white/5 relative">
-          <motion.div
-            key={page}
-            initial={{ x: "-100%" }}
-            animate={{ x: "0%" }}
-            transition={{ duration: 5, ease: "linear" }}
-            className="absolute inset-0 bg-white shadow-[0_0_15px_rgba(255,255,255,1)]"
-          />
-        </div>
+      {/* 4. TOP LASER PROGRESS BAR */}
+      <div className="absolute top-0 left-0 w-full z-40 h-[3px]">
+        <motion.div
+          key={page}
+          initial={{ scaleX: 0, originX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 5, ease: "linear" }}
+          className="w-full h-full bg-brand-primary shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+        />
       </div>
     </section>
   );
