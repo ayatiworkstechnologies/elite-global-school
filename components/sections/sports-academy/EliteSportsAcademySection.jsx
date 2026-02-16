@@ -9,14 +9,14 @@ const programs = [
   {
     id: 1,
     title: "Football",
-    image: "/assets/img-1.jpeg",
+    image: "/assets/img-1.jpg",
     description:
       "Comprehensive tactical and physical training for offensive and defensive positions.",
   },
   {
     id: 2,
     title: "KARATE TRAINING",
-    image: "/assets/img-2.jpeg",
+    image: "/assets/img-2.jpg",
     description:
       "Focus on skill development, game IQ, and strength conditioning for all court positions.",
   },
