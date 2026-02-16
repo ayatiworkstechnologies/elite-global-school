@@ -12,10 +12,10 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-    <MainHero
+      <MainHero
         title="Conact US"
-        imageDesktop="/banner/contact-banner.png"
-        imageMobile="/banner/contact-banner-mob.png"
+        imageDesktop="/banner/contact-banner.jpg"
+        imageMobile="/banner/contact-banner-mob.jpg"
       />
       <ContactSection />
     </>

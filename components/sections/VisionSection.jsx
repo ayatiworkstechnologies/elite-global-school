@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -9,12 +14,12 @@ const CONTENT = {
   vision: {
     title: "Our Vision",
     text: `Our vision is to build a sturdy and highly educated citizen who are articulate, thoughtful, trusts to express and debate ideas and actively contributes to their own and others growth and also to uphold a learning community that produces leaders through faith, knowledge and inspiration.`,
-    image: "/assets/vision.png",
+    image: "/assets/vision.jpg",
   },
   mission: {
     title: "Our Mission",
     text: `Elite Global is dedicated to build an enriched learning environment using modern-day teaching pedagogy to cultivate an innovative and rigorous academic program streamed with CBSE Curriculum.`,
-    image: "/assets/mission.png",
+    image: "/assets/mission.jpg",
   },
 };
 
@@ -36,12 +41,8 @@ export default function VisionSection() {
   const data = CONTENT[mode];
 
   return (
-    <section
-      ref={sectionRef}
-      className="section-lg bg-white overflow-hidden"
-    >
+    <section ref={sectionRef} className="section-lg bg-white overflow-hidden">
       <div className="container-lg relative">
-
         {/* IMAGE BLOCK */}
         <div className="relative w-full lg:ml-auto lg:w-[70%]">
           <AnimatePresence mode="wait">
@@ -100,7 +101,6 @@ export default function VisionSection() {
             </motion.div>
           </AnimatePresence>
         </div>
-
       </div>
     </section>
   );

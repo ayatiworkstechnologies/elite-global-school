@@ -6,11 +6,10 @@ import Image from "next/image";
 export default function PrincipalMessage() {
   return (
     <section className="relative section-lg overflow-hidden py-16 lg:py-28">
-
       {/* --- BACKGROUND SPLIT (60% Dark / 40% White) --- */}
       <div className="absolute inset-0 z-0">
         <div className="h-[75%] bg-brand-accent" /> {/* Dark Navy Top */}
-        <div className="h-[25%] bg-white" />      {/* White Bottom */}
+        <div className="h-[25%] bg-white" /> {/* White Bottom */}
       </div>
 
       {/* --- "WELCOME" WATERMARK TEXT --- */}
@@ -29,10 +28,8 @@ export default function PrincipalMessage() {
       {/* --- MAIN CONTAINER --- */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
           {/* === CONTENT COLUMN === */}
           <div className="text-white order-1 lg:order-2">
-            
             {/* Tagline */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -66,7 +63,12 @@ export default function PrincipalMessage() {
               viewport={{ once: true }}
               className="text-base sm:text-lg leading-relaxed text-gray-200 lg:text-gray-300 font-light max-w-xl"
             >
-              Welcome to Springfield Academy. We are dedicated to fostering a nurturing environment where every student can thrive academically and socially. Our commitment to excellence drives everything we do, ensuring that each child is prepared not just for higher education, but for life. We invite you to explore our community and see what makes us unique.
+              Welcome to Springfield Academy. We are dedicated to fostering a
+              nurturing environment where every student can thrive academically
+              and socially. Our commitment to excellence drives everything we
+              do, ensuring that each child is prepared not just for higher
+              education, but for life. We invite you to explore our community
+              and see what makes us unique.
             </motion.p>
 
             {/* Signature Block */}
@@ -96,27 +98,26 @@ export default function PrincipalMessage() {
               // Removed h-full/w-full constraints so div wraps the image naturally
               className="relative z-10 w-full max-w-md lg:max-w-full md:mt-20"
             >
-               <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative"
-               >
-                  {/* 1. Removed `fill`
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                className="relative"
+              >
+                {/* 1. Removed `fill`
                      2. Added `width` and `height` (Aspect Ratio will be preserved)
                      3. Added `h-auto w-full` to make it responsive
                   */}
-                  <Image
-                    src="/assets/principal-img.png"
-                    alt="Principal Dr. Eleanor Vance"
-                    width={600}  // Set this to the actual width of your image (or higher)
-                    height={800} // Set this to the actual height of your image
-                    className="w-full h-auto object-contain"
-                    priority
-                  />
-               </motion.div>
+                <Image
+                  src="/assets/princpal.png"
+                  alt="Principal Dr. Eleanor Vance"
+                  width={600} // Set this to the actual width of your image (or higher)
+                  height={800} // Set this to the actual height of your image
+                  className="w-full h-auto object-contain"
+                  priority
+                />
+              </motion.div>
             </motion.div>
           </div>
-
         </div>
       </div>
     </section>

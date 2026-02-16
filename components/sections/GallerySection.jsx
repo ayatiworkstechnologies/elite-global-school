@@ -12,56 +12,56 @@ const photoItems = [
     id: 1,
     tag: "SPORTS",
     title: "Annual Sports day",
-    image: "/assets/gallery-img-1.png",
+    image: "/assets/gallery-img-1.jpg",
     className: "md:col-span-2 md:row-span-2 h-[400px] md:h-full",
     // MANUAL LIST: Add your specific image paths here
     gallery: [
-      "/assets/gallery-img-1.png",
-      "/assets/gallery-img-2.png",
-      "/assets/gallery-img-3.png",
-      "/assets/gallery-img-4.png",
-      "/assets/gallery-img-1.png", // Repeats for demo purposes
-      "/assets/gallery-img-2.png",
-    ], 
+      "/assets/gallery-img-1.jpg",
+      "/assets/gallery-img-2.jpg",
+      "/assets/gallery-img-3.jpg",
+      "/assets/gallery-img-4.jpg",
+      "/assets/gallery-img-1.jpg", // Repeats for demo purposes
+      "/assets/gallery-img-2.jpg",
+    ],
   },
   {
     id: 2,
     tag: "REPUBLIC",
     title: "National Days",
-    image: "/assets/gallery-img-2.png",
+    image: "/assets/gallery-img-2.jpg",
     className: "md:col-span-1 md:row-span-1 h-[250px]",
     gallery: [
-      "/assets/gallery-img-2.png",
-      "/assets/gallery-img-3.png",
-      "/assets/gallery-img-4.png",
-    ], 
+      "/assets/gallery-img-2.jpg",
+      "/assets/gallery-img-3.jpg",
+      "/assets/gallery-img-4.jpg",
+    ],
   },
   {
     id: 3,
     tag: "FARM",
     title: "Out Reach Program",
-    image: "/assets/gallery-img-3.png",
+    image: "/assets/gallery-img-4.jpg",
     className: "md:col-span-1 md:row-span-1 h-[250px]",
     gallery: [
-      "/assets/gallery-img-3.png",
-      "/assets/gallery-img-1.png",
-      "/assets/gallery-img-4.png",
-      "/assets/gallery-img-2.png",
-    ], 
+      "/assets/gallery-img-3.jpg",
+      "/assets/gallery-img-1.jpg",
+      "/assets/gallery-img-4.jpg",
+      "/assets/gallery-img-2.jpg",
+    ],
   },
   {
     id: 4,
     tag: "ARTS",
     title: "Extra Curricular",
-    image: "/assets/gallery-img-4.png",
+    image: "/assets/gallery-img-3.jpg",
     className: "md:col-span-2 md:row-span-1 h-[250px]",
     gallery: [
-      "/assets/gallery-img-4.png",
-      "/assets/gallery-img-1.png",
-      "/assets/gallery-img-2.png",
-      "/assets/gallery-img-3.png",
-      "/assets/gallery-img-4.png",
-    ], 
+      "/assets/gallery-img-4.jpg",
+      "/assets/gallery-img-1.jpg",
+      "/assets/gallery-img-2.jpg",
+      "/assets/gallery-img-3.jpg",
+      "/assets/gallery-img-4.jpg",
+    ],
   },
 ];
 
@@ -70,28 +70,28 @@ const videoItems = [
     id: 5,
     tag: "HIGHLIGHTS",
     title: "Annual Day 2023 Highlights",
-    image: "/assets/gallery-img-1.png",
+    image: "/assets/gallery-img-1.jpg",
     className: "md:col-span-2 md:row-span-2 h-[400px] md:h-full",
   },
   {
     id: 6,
     tag: "KARATE",
     title: "Karate Championship",
-    image: "/assets/gallery-img-2.png",
+    image: "/assets/gallery-img-2.jpg",
     className: "md:col-span-2 md:row-span-1 h-[250px]",
   },
   {
     id: 7,
     tag: "SCIENCE",
     title: "Science Fair Projects",
-    image: "/assets/gallery-img-3.png",
+    image: "/assets/gallery-img-3.jpg",
     className: "md:col-span-2 md:row-span-1 h-[250px]",
   },
 ];
 
 export default function GallerySection() {
   const [activeTab, setActiveTab] = useState("photos");
-  
+
   // --- MODAL STATE ---
   const [selectedAlbum, setSelectedAlbum] = useState(null); // Which card was clicked?
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Which image inside the album?
@@ -116,16 +116,16 @@ export default function GallerySection() {
   const nextImage = (e) => {
     e?.stopPropagation();
     if (!selectedAlbum) return;
-    setCurrentImageIndex((prev) => 
-      prev === selectedAlbum.gallery.length - 1 ? 0 : prev + 1
+    setCurrentImageIndex((prev) =>
+      prev === selectedAlbum.gallery.length - 1 ? 0 : prev + 1,
     );
   };
 
   const prevImage = (e) => {
     e?.stopPropagation();
     if (!selectedAlbum) return;
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? selectedAlbum.gallery.length - 1 : prev - 1
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? selectedAlbum.gallery.length - 1 : prev - 1,
     );
   };
 
@@ -146,11 +146,10 @@ export default function GallerySection() {
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
-        
         {/* --- HEADER --- */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div className="max-w-2xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -162,7 +161,7 @@ export default function GallerySection() {
               </span>
             </motion.div>
 
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -171,18 +170,19 @@ export default function GallerySection() {
               Our Uniqueness Well Defined Here
             </motion.h2>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-gray-600 leading-relaxed"
             >
               A glimpse into everyday learning, celebrations, sports, and
-              experiences that shape our students' journey at Elite Global Schools.
+              experiences that shape our students' journey at Elite Global
+              Schools.
             </motion.p>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -196,7 +196,12 @@ export default function GallerySection() {
                   : "bg-white text-gray-500 hover:bg-gray-50"
               }`}
             >
-              <Camera size={20} className={activeTab === "photos" ? "text-brand-secondary " : ""} />
+              <Camera
+                size={20}
+                className={
+                  activeTab === "photos" ? "text-brand-secondary " : ""
+                }
+              />
               Photos
             </button>
             <button
@@ -207,7 +212,12 @@ export default function GallerySection() {
                   : "bg-white text-gray-500 hover:bg-gray-50"
               }`}
             >
-              <Video size={20} className={activeTab === "videos" ? "text-brand-secondary " : ""} />
+              <Video
+                size={20}
+                className={
+                  activeTab === "videos" ? "text-brand-secondary " : ""
+                }
+              />
               Videos
             </button>
           </motion.div>
@@ -242,15 +252,16 @@ export default function GallerySection() {
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6">
-                   <h3 className="text-white text-xl md:text-2xl font-bold leading-tight drop-shadow-md group-hover:translate-x-2 transition-transform duration-300">
-                     {item.title}
-                   </h3>
-                   {/* Visual cue that this opens a gallery */}
-                   {activeTab === "photos" && (
-                     <p className="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
-                       <Camera size={14} /> View Gallery ({item.gallery.length} photos)
-                     </p>
-                   )}
+                  <h3 className="text-white text-xl md:text-2xl font-bold leading-tight drop-shadow-md group-hover:translate-x-2 transition-transform duration-300">
+                    {item.title}
+                  </h3>
+                  {/* Visual cue that this opens a gallery */}
+                  {activeTab === "photos" && (
+                    <p className="text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
+                      <Camera size={14} /> View Gallery ({item.gallery.length}{" "}
+                      photos)
+                    </p>
+                  )}
                 </div>
 
                 {activeTab === "videos" && (
@@ -264,7 +275,6 @@ export default function GallerySection() {
             ))}
           </AnimatePresence>
         </div>
-
       </div>
 
       {/* --- FULL SCREEN MODAL (LIGHTBOX) --- */}
@@ -284,8 +294,8 @@ export default function GallerySection() {
                 </span>
                 <h3 className="text-xl font-bold">{selectedAlbum.title}</h3>
               </div>
-              <button 
-                onClick={closeModal} 
+              <button
+                onClick={closeModal}
                 className="p-2 hover:bg-white/10 transition-colors"
               >
                 <X size={32} />
@@ -294,9 +304,8 @@ export default function GallerySection() {
 
             {/* 2. Main Image Viewer */}
             <div className="flex-1 relative flex items-center justify-center overflow-hidden px-4">
-              
               {/* Left Arrow */}
-              <button 
+              <button
                 onClick={prevImage}
                 className="absolute left-4 md:left-8 z-20 p-3  bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110"
               >
@@ -323,7 +332,7 @@ export default function GallerySection() {
               </motion.div>
 
               {/* Right Arrow */}
-              <button 
+              <button
                 onClick={nextImage}
                 className="absolute right-4 md:right-8 z-20 p-3 bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110"
               >
@@ -339,8 +348,8 @@ export default function GallerySection() {
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
                     className={`relative w-20 h-16 md:w-24 md:h-20 flex-shrink-0 -md overflow-hidden transition-all duration-300 ${
-                      currentImageIndex === index 
-                        ? "ring-2 ring-brand-secondary  scale-110 opacity-100" 
+                      currentImageIndex === index
+                        ? "ring-2 ring-brand-secondary  scale-110 opacity-100"
                         : "opacity-50 hover:opacity-100 hover:scale-105"
                     }`}
                   >
@@ -354,11 +363,9 @@ export default function GallerySection() {
                 ))}
               </div>
             </div>
-
           </motion.div>
         )}
       </AnimatePresence>
-
     </section>
   );
 }

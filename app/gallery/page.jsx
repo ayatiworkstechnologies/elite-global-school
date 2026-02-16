@@ -14,8 +14,8 @@ export default function GalleryPage() {
     <>
       <MainHero
         title="Gallery"
-        imageDesktop="/banner/gallery-banner.png"
-        imageMobile="/banner/gallery-banner-mob.png"
+        imageDesktop="/banner/gallery-banner.jpg"
+        imageMobile="/banner/gallery-banner-mob.jpg"
       />
       <GallerySection />
     </>

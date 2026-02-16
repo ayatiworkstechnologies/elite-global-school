@@ -17,8 +17,8 @@ export default function AboutPage() {
     <>
       <MainHero
         title="About"
-        imageDesktop="/banner/about-banner.png"
-        imageMobile="/banner/about-banner-mob.png"
+        imageDesktop="/banner/about-banner.jpg"
+        imageMobile="/banner/about-banner-mob.jpg"
       />
       <PrincipalMessage />
       <VisionMissionSection />

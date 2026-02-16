@@ -16,12 +16,12 @@ We thought of filling this gap by giving our children the opportunity for them t
 
 /* ONLY IMAGES SLIDE */
 const IMAGES = [
-  { src: "/assets/img-1.webp", label: "FOOTBALL TRAINING" },
-  { src: "/assets/img-2.webp", label: "KARATE TRAINING" },
-  { src: "/assets/img-3.webp", label: "SILAMBAM TRAINING" },
-  { src: "/assets/img-3.webp", label: "CRICKET TRAINING" },
-  { src: "/assets/img-3.webp", label: "CHESS TRAINING" },
-  { src: "/assets/img-3.webp", label: "TABLE TENNIS TRAINING" }
+  { src: "/assets/img-1.jpg", label: "FOOTBALL TRAINING" },
+  { src: "/assets/img-2.jpg", label: "KARATE TRAINING" },
+  { src: "/assets/img-3.jpg", label: "SILAMBAM TRAINING" },
+  { src: "/assets/img-4.jpg", label: "CRICKET TRAINING" },
+  { src: "/assets/img-5.jpg", label: "CHESS TRAINING" },
+  { src: "/assets/img-6.jpg", label: "TABLE TENNIS TRAINING" },
 ];
 
 export default function SportsAcademyCard() {
@@ -43,7 +43,6 @@ export default function SportsAcademyCard() {
     <section className="section-lg bg-white overflow-hidden">
       <div className="container-lg">
         <div className="relative md:p-6">
-
           {/* LEFT ARROW */}
           <button
             onClick={() => change(-1)}
@@ -61,7 +60,6 @@ export default function SportsAcademyCard() {
           </button>
 
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-14 items-start border border-brand-secondary">
-
             {/* LEFT – IMAGE SLIDER */}
             <div className="relative overflow-hidden">
               <AnimatePresence mode="wait">
@@ -107,7 +105,6 @@ export default function SportsAcademyCard() {
                 {CONTENT.desc}
               </p>
             </div>
-
           </div>
         </div>
       </div>
