@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react"; // Changed to Arrow icons
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const programs = [
   {
@@ -32,21 +32,21 @@ const programs = [
     title: "CRICKET TRAINING",
     image: "/assets/img-4.jpg",
     description:
-      "Comprehensive coaching covering batting stance, bowling action, and fielding drills to master the gentleman's game.",
+      "Comprehensive coaching covering batting stance, bowling action, and fielding drills.",
   },
   {
-    id: 5, // Unique ID
+    id: 5,
     title: "CHESS TRAINING",
     image: "/assets/img-5.jpg",
     description:
-      "Strategic mental conditioning focused on opening theories, tactical patterns, and endgame proficiency.",
+      "Strategic mental conditioning focused on opening theories and endgame proficiency.",
   },
   {
-    id: 6, // Unique ID (changed from 5 to 6)
+    id: 6,
     title: "TABLE TENNIS TRAINING",
     image: "/assets/img-6.jpg",
     description:
-      "High-speed training designed to improve hand-eye coordination, reflex speed, and advanced paddle spin techniques.",
+      "High-speed training designed to improve reflex speed and spin techniques.",
   },
 ];
 
@@ -55,7 +55,6 @@ export default function EliteSportsAcademySection() {
   const [cardsPerView, setCardsPerView] = useState(1);
   const containerRef = useRef(null);
 
-  // Responsive handler to determine how many cards to show
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -85,63 +84,64 @@ export default function EliteSportsAcademySection() {
   const cardWidthPercentage = 100 / cardsPerView;
 
   return (
-    <section className="py-16 md:py-24 overflow-hidden relative">
-      {/* --- BACKGROUND IMAGE SECTION --- */}
+    <section className="py-12 md:py-20 overflow-hidden relative">
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <Image
-          src="/assets/about-bg.svg" // ⚠️ Make sure to add this image to public/images/
+          src="/assets/about-bg.svg"
           alt="Grid Background"
           fill
-          className="object-cover " // Adjust opacity to make text readable
+          className="object-cover"
           priority
         />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-brand-secondary tracking-[0.4em] uppercase text-sm font-semibold block mb-4"
+            className="text-brand-secondary tracking-[0.25em] md:tracking-[0.4em] uppercase text-xs md:text-sm font-semibold block mb-3 md:mb-4"
           >
             Elite Sports Academy
           </motion.span>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-primary mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-primary mb-4 md:mb-6 leading-tight"
           >
             Physical And Mental Ability Enhances A Child&apos;s Early Growth
           </motion.h2>
         </div>
 
-        {/* Carousel Container */}
+        {/* Carousel */}
         <div className="relative px-2 md:px-12">
-          {" "}
-          {/* Added padding for arrow space */}
-          {/* --- LEFT ARROW --- */}
+          {/* Desktop Left Arrow */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={prevSlide}
-            className="absolute left-0 top-[40%] -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-brand-secondary hover:text-brand-secondary transition-colors"
+            className="absolute left-0 top-[40%] -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-brand-secondary"
           >
-            <ArrowLeft size={32} strokeWidth={1.5} /> {/* Thin arrow style */}
+            <ArrowLeft size={28} strokeWidth={1.5} />
           </motion.button>
-          {/* --- RIGHT ARROW --- */}
+
+          {/* Desktop Right Arrow */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={nextSlide}
-            className="absolute right-0 top-[40%] -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-brand-secondary hover:text-brand-secondary transition-colors"
+            className="absolute right-0 top-[40%] -translate-y-1/2 z-20 hidden md:flex items-center justify-center text-brand-secondary"
           >
-            <ArrowRight size={32} strokeWidth={1.5} /> {/* Thin arrow style */}
+            <ArrowRight size={28} strokeWidth={1.5} />
           </motion.button>
-          {/* Cards Track */}
+
+          {/* Cards */}
           <div className="overflow-hidden" ref={containerRef}>
             <motion.div
               className="flex"
@@ -153,14 +153,12 @@ export default function EliteSportsAcademySection() {
               {programs.map((program) => (
                 <div
                   key={program.id}
-                  className={`shrink-0 px-4 box-border`}
+                  className="shrink-0 px-2 sm:px-3 md:px-4 box-border"
                   style={{ width: `${cardWidthPercentage}%` }}
                 >
-                  <div className="h-full flex flex-col bg-white/50 backdrop-blur-sm p-2 rounded-xl">
-                    {" "}
-                    {/* Optional: slight backdrop for readability over grid */}
+                  <div className="h-full flex flex-col bg-white/50 backdrop-blur-sm p-3 md:p-4 rounded-xl">
                     {/* Image */}
-                    <div className="relative w-full h-64 mb-6 overflow-hidden group">
+                    <div className="relative w-full h-48 sm:h-56 md:h-64 mb-4 md:mb-6 overflow-hidden group">
                       <Image
                         src={program.image}
                         alt={program.title}
@@ -168,23 +166,41 @@ export default function EliteSportsAcademySection() {
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
+
                     {/* Content */}
-                    <div className="grow flex flex-col justify-between px-2">
+                    <div className="grow flex flex-col justify-between px-1 md:px-2">
                       <div>
-                        <h3 className="text-xl font-bold tracking-[0.3em] text-brand-primary uppercase mb-3">
+                        <h3 className="text-base sm:text-lg md:text-xl font-bold tracking-[0.2em] md:tracking-[0.3em] text-brand-primary uppercase mb-2 md:mb-3">
                           {program.title}
                         </h3>
                         <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                           {program.description}
                         </p>
                       </div>
-                      {/* Bottom Border Line */}
-                      <div className="w-full h-px bg-brand-secondary/50 mt-6"></div>
+
+                      <div className="w-full h-px bg-brand-secondary/50 mt-4 md:mt-6"></div>
                     </div>
                   </div>
                 </div>
               ))}
             </motion.div>
+          </div>
+
+          {/* Mobile Navigation Buttons */}
+          <div className="flex md:hidden justify-center gap-6 mt-6">
+            <button
+              onClick={prevSlide}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow text-brand-secondary"
+            >
+              <ArrowLeft size={22} strokeWidth={1.5} />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow text-brand-secondary"
+            >
+              <ArrowRight size={22} strokeWidth={1.5} />
+            </button>
           </div>
         </div>
       </div>

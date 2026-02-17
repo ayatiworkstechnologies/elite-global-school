@@ -156,7 +156,7 @@ export default function CoreEthosSection() {
           <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-gray-500 uppercase">
             CORE ETHICS OF
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mt-1 sm:mt-2 text-brand-primary">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight  mt-1 sm:mt-2 text-brand-primary">
             Elite Global School
           </h2>
         </motion.div>
