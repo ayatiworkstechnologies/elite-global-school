@@ -63,12 +63,22 @@ export default function PrincipalMessage() {
               viewport={{ once: true }}
               className="text-base sm:text-lg leading-relaxed text-gray-200 lg:text-gray-300 font-light max-w-xl"
             >
-              Welcome to Springfield Academy. We are dedicated to fostering a
-              nurturing environment where every student can thrive academically
-              and socially. Our commitment to excellence drives everything we
-              do, ensuring that each child is prepared not just for higher
-              education, but for life. We invite you to explore our community
-              and see what makes us unique.
+              Our institution is committed to providing quality education in a
+              safe, supportive, and inclusive environment. We focus on academic
+              excellence, strong values, and the overall development of every
+              student.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-base sm:text-lg leading-relaxed text-gray-200 lg:text-gray-300 font-light max-w-xl"
+            >
+              Along with strong academics, we focus on character building,
+              creativity, and confidence. We believe that every student has
+              unique talents, and it is our responsibility to help them discover
+              and develop those strengths.
             </motion.p>
 
             {/* Signature Block */}
@@ -79,9 +89,9 @@ export default function PrincipalMessage() {
               viewport={{ once: true }}
               className="mt-8 lg:mt-10"
             >
-              <h4 className="text-lg font-bold tracking-[0.4em] text-white uppercase">
+              {/* <h4 className="text-lg font-bold tracking-[0.4em] text-white uppercase">
                 Dr. Eleanor Vance.
-              </h4>
+              </h4> */}
               <span className="text-sm font-medium tracking-[0.4em] text-white uppercase ">
                 Principal
               </span>
@@ -108,7 +118,7 @@ export default function PrincipalMessage() {
                      3. Added `h-auto w-full` to make it responsive
                   */}
                 <Image
-                  src="/assets/princpal.png"
+                  src="/assets/about-01.png"
                   alt="Principal Dr. Eleanor Vance"
                   width={600} // Set this to the actual width of your image (or higher)
                   height={800} // Set this to the actual height of your image

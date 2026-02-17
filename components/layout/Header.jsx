@@ -9,10 +9,11 @@ import Link from "next/link";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
+  { label: "Admission", href: "/admission" },
   { label: "About Us", href: "/about" },
   { label: "Sports Academy", href: "/sports-academy" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Admission", href: "/admission" },
+
   // { label: "News & Events", href: "/news-events" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -31,18 +32,19 @@ export default function Header() {
         className="sticky top-0 z-50 bg-white"
       >
         <div className="container-lg flex items-center justify-between h-21">
-          
           {/* LOGO */}
           <div className="flex items-center gap-3">
-            <Link href="/"> <Image
-              src="/elite-logo.png"
-              alt="Elite Global School"
-              width={160}
-              height={50}
-              priority
-              className="h-18 w-auto object-contain"
-            /></Link>
-            
+            <Link href="/">
+              {" "}
+              <Image
+                src="/elite-logo.png"
+                alt="Elite Global School"
+                width={160}
+                height={50}
+                priority
+                className="h-18 w-auto object-contain"
+              />
+            </Link>
           </div>
 
           {/* DESKTOP NAV */}

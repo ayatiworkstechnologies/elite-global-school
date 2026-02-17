@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <MainHero
-        title="Conact US"
+        title="Contact US"
         imageDesktop="/banner/contact-banner.jpg"
         imageMobile="/banner/contact-banner-mob.jpg"
       />
