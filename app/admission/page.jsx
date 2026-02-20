@@ -7,6 +7,9 @@ import FeeStructure from "@/components/sections/FeeStructure";
 export const metadata = {
   title: "Admission | Elite Global School ",
   description: "A place where every learner is meant to be a star",
+  alternates: {
+    canonical: "/admission",
+  },
 };
 
 export default function FeeStructurePage() {

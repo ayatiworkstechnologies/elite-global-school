@@ -10,6 +10,9 @@ import VisionMissionSection from "@/components/sections/about/VisionMissionSecti
 export const metadata = {
   title: "About Us | Elite Global School ",
   description: "A place where every learner is meant to be a star",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

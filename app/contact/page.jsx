@@ -7,6 +7,9 @@ import ContactSection from "@/components/sections/ContactSection";
 export const metadata = {
   title: "Contact Us | Elite Global School ",
   description: "A place where every learner is meant to be a star",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

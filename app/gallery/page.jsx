@@ -7,6 +7,9 @@ import GallerySection from "@/components/sections/GallerySection";
 export const metadata = {
   title: "Gallery | Elite Global School ",
   description: "A place where every learner is meant to be a star",
+  alternates: {
+    canonical: "/gallery",
+  },
 };
 
 export default function GalleryPage() {

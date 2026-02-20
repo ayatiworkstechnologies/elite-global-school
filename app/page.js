@@ -11,19 +11,47 @@ import UniquenessSection from "@/components/sections/UniquenessSection";
 import VisionSection from "@/components/sections/VisionSection";
 import Image from "next/image";
 
+export const metadata = {
+  title:
+    "Islamic schools in Chennai, Elite Global School | Enlighten Knowledge",
+  description: "A place where every learner is meant to be a star",
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Elite Global School",
+  url: "https://eliteglobalschools.com",
+  logo: "https://eliteglobalschools.com/logo.png",
+  description: "A place where every learner is meant to be a star",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Chennai",
+    addressRegion: "Tamil Nadu",
+    addressCountry: "IN",
+  },
+};
+
 export default function Home() {
   return (
     <>
-    <HeroSection />
-    <AboutValuesSection />
-    <ActivitiesVideoSection />
-    <VisionSection/>
-    <CoreEthosSection/>
-    <InnerStorySection />
-    <OurFocusSection />
-    <UniquenessSection />
-    <SportsAcademySlider />
-    <HomeCTA />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <HeroSection />
+      <AboutValuesSection />
+      <ActivitiesVideoSection />
+      <VisionSection />
+      <CoreEthosSection />
+      <InnerStorySection />
+      <OurFocusSection />
+      <UniquenessSection />
+      <SportsAcademySlider />
+      <HomeCTA />
     </>
   );
 }

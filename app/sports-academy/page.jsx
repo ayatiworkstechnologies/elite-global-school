@@ -9,8 +9,11 @@ import StudentAthleteSuccessSection from "@/components/sections/sports-academy/S
    METADATA
 ========================= */
 export const metadata = {
-  title: "Sprorts Acadaemy | Elite Global School ",
+  title: "Sports Academy | Elite Global School ",
   description: "A place where every learner is meant to be a star",
+  alternates: {
+    canonical: "/sports-academy",
+  },
 };
 
 export default function SportsAcademyPage() {
