@@ -29,7 +29,7 @@ const slideVariants = {
       clipPath: { duration: 1.2, ease: [0.77, 0, 0.175, 1] },
       rotateY: { duration: 1.4, ease: [0.25, 1, 0.5, 1] },
       scale: { duration: 1.4, ease: [0.25, 1, 0.5, 1] },
-      opacity: { duration: 0.5 }
+      opacity: { duration: 0.5 },
     },
   },
   exit: (direction) => ({
@@ -41,7 +41,7 @@ const slideVariants = {
     transition: {
       clipPath: { duration: 1.1, ease: [0.77, 0, 0.175, 1] },
       rotateY: { duration: 1.1 },
-      opacity: { duration: 0.8 }
+      opacity: { duration: 0.8 },
     },
   }),
 };
@@ -71,7 +71,6 @@ export default function HeroSlider() {
   return (
     // Perspective added to the container to make 3D rotations look real
     <section className="relative w-full h-[100dvh] overflow-hidden bg-neutral-950 [perspective:1500px]">
-      
       {/* 1. THE NEXT.JS IMAGE CAROUSEL */}
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
         <motion.div
@@ -99,13 +98,19 @@ export default function HeroSlider() {
 
       {/* 2. INTERACTIVE SIDE CONTROLS */}
       <div className="absolute inset-0 z-20 flex">
-        <div className="flex-1 cursor-west-resize" onClick={() => paginate(-1)} />
-        <div className="flex-1 cursor-east-resize" onClick={() => paginate(1)} />
+        <div
+          className="flex-1 cursor-west-resize"
+          onClick={() => paginate(-1)}
+        />
+        <div
+          className="flex-1 cursor-east-resize"
+          onClick={() => paginate(1)}
+        />
       </div>
 
       {/* 3. MINIMALIST PAGINATION */}
-      <div className="absolute bottom-12 left-8 right-8 z-30 flex items-center justify-between pointer-events-none">
-        <div className="flex gap-3 pointer-events-auto">
+      <div className="absolute bottom-6 sm:bottom-12 left-4 sm:left-8 right-4 sm:right-8 z-30 flex items-center justify-between pointer-events-none">
+        <div className="flex gap-2 sm:gap-3 pointer-events-auto">
           {SLIDES.map((_, i) => (
             <button
               key={i}
@@ -115,8 +120,8 @@ export default function HeroSlider() {
               <div
                 className={`h-[3px] rounded-full transition-all duration-700 ${
                   i === index
-                    ? "w-16 bg-brand-primary"
-                    : "w-6 bg-brand-primary/40 group-hover:bg-brand-primary/70"
+                    ? "w-10 sm:w-16 bg-brand-primary"
+                    : "w-4 sm:w-6 bg-brand-primary/40 group-hover:bg-brand-primary/70"
                 }`}
               />
             </button>
@@ -124,16 +129,18 @@ export default function HeroSlider() {
         </div>
 
         {/* Cinematic Slide Counter */}
-        <div className="text-brand-primary flex items-baseline gap-2 overflow-hidden h-10">
+        <div className="text-brand-primary flex items-baseline gap-1 sm:gap-2 overflow-hidden h-10 bg-black/10 sm:bg-transparent px-2 sm:px-0 rounded-md backdrop-blur-sm sm:backdrop-blur-none">
           <motion.span
             key={index}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
-            className="text-4xl font-medium tracking-tighter"
+            className="text-3xl sm:text-4xl font-medium tracking-tighter"
           >
             0{index + 1}
           </motion.span>
-          <span className="text-brand-primary/40 text-xl font-light">/ 0{SLIDES.length}</span>
+          <span className="text-brand-primary/60 text-lg sm:text-xl font-light">
+            / 0{SLIDES.length}
+          </span>
         </div>
       </div>
 

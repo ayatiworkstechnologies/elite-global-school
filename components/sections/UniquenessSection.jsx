@@ -5,11 +5,31 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const FEATURES = [
-  { title: "Playground", desc: "Bright, focused spaces designed for creative play and physical development.", image: "/assets/our-5.jpg" },
-  { title: "Classroom", desc: "Open, safe areas where students explore, collaborate and build teamwork.", image: "/assets/our-4.jpg" },
-  { title: "Campus", desc: "A secure, inspiring environment that supports learning beyond classrooms.", image: "/assets/our-1.jpg" },
-  { title: "Library", desc: "A knowledge hub that encourages reading, research, and independent thinking.", image: "/assets/our-2.jpg" },
-  { title: "Canteen", desc: "Hygienic, welcoming spaces serving nutritious meals for growing minds.", image: "/assets/our-3.jpg" },
+  {
+    title: "Playground",
+    desc: "Bright, focused spaces designed for creative play and physical development.",
+    image: "/assets/our-5.jpg",
+  },
+  {
+    title: "Classroom",
+    desc: "Open, safe areas where students explore, collaborate and build teamwork.",
+    image: "/assets/our-4.jpg",
+  },
+  {
+    title: "Campus",
+    desc: "A secure, inspiring environment that supports learning beyond classrooms.",
+    image: "/assets/our-1.jpg",
+  },
+  {
+    title: "Library",
+    desc: "A knowledge hub that encourages reading, research, and independent thinking.",
+    image: "/assets/our-2.jpg",
+  },
+  {
+    title: "Canteen",
+    desc: "Hygienic, welcoming spaces serving nutritious meals for growing minds.",
+    image: "/assets/our-3.jpg",
+  },
 ];
 
 export default function UniquenessSection() {
@@ -37,7 +57,6 @@ export default function UniquenessSection() {
     <section className="section-lg bg-white overflow-hidden">
       {/* FULL WIDTH WRAPPER */}
       <div className="w-full px-4 lg:px-0">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -51,7 +70,8 @@ export default function UniquenessSection() {
           </span>
           <h2 className="mt-4 font-primary font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-primary">
             Our Uniqueness Well
-            <br />Defined Here
+            <br />
+            Defined Here
           </h2>
         </motion.div>
 
@@ -64,7 +84,12 @@ export default function UniquenessSection() {
               whileTap={{ scale: 0.97 }}
               className="relative flex-shrink-0 w-[85%] h-[260px] snap-center rounded-xl overflow-hidden shadow-xl"
             >
-              <Image src={item.image} alt={item.title} fill className="object-cover" />
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-black/40" />
               <div className="absolute bottom-0 p-4 text-white">
                 <h4 className="font-primary text-xl mb-1">{item.title}</h4>
@@ -99,25 +124,39 @@ export default function UniquenessSection() {
                 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 whileHover={{ y: -8 }}
-                className={`absolute overflow-hidden rounded-xl shadow-xl cursor-pointer
-    ${isActive
-                    ? "z-30 w-[520px] h-[340px]"
-                    : abs === 1
-                      ? "z-20 w-[480px] h-[300px]"
-                      : "z-10 w-[460px] h-[280px]"}`}
+                className={`absolute overflow-hidden rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] cursor-pointer group transition-all duration-300
+    ${
+      isActive
+        ? "z-30 w-[520px] h-[340px] shadow-brand-primary/20"
+        : abs === 1
+          ? "z-20 w-[480px] h-[300px]"
+          : "z-10 w-[460px] h-[280px]"
+    }`}
               >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-60 group-hover:opacity-80"}`}
+                />
 
-                <Image src={item.image} alt={item.title} fill className="object-cover" />
-
-                <div className="absolute bottom-0 p-5 text-white">
-                  <h4 className="font-primary text-2xl mb-1">{item.title}</h4>
-                  <p className="text-lg text-white/90">{item.desc}</p>
+                <div
+                  className={`absolute bottom-0 w-full p-6 text-white transition-all duration-500 transform ${isActive ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0"}`}
+                >
+                  <h4 className="font-primary text-2xl lg:text-3xl font-bold mb-2 tracking-wide">
+                    {item.title}
+                  </h4>
+                  <p className="text-base lg:text-lg text-white/90 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

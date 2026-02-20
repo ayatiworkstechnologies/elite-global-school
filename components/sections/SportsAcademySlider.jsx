@@ -20,7 +20,6 @@ const IMAGES = [
   { src: "/assets/img-2.jpg", label: "KARATE TRAINING" },
   { src: "/assets/img-3.jpg", label: "SILAMBAM TRAINING" },
   { src: "/assets/img-4.jpg", label: "CRICKET TRAINING" },
-  { src: "/assets/img-5.jpg", label: "CHESS TRAINING" },
   { src: "/assets/img-6.jpg", label: "TABLE TENNIS TRAINING" },
 ];
 
@@ -46,17 +45,17 @@ export default function SportsAcademyCard() {
           {/* LEFT ARROW */}
           <button
             onClick={() => change(-1)}
-            className="absolute -left-6 top-1/2 -translate-y-1/2 z-20 text-brand-secondary hover:text-brand-primary transition"
+            className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur shadow-lg rounded-full text-brand-secondary hover:bg-brand-primary hover:text-white transition-all duration-300"
           >
-            <HiChevronLeft size={28} />
+            <HiChevronLeft size={24} />
           </button>
 
           {/* RIGHT ARROW */}
           <button
             onClick={() => change(1)}
-            className="absolute -right-6 top-1/2 -translate-y-1/2 z-20 text-brand-secondary hover:text-brand-primary transition"
+            className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur shadow-lg rounded-full text-brand-secondary hover:bg-brand-primary hover:text-white transition-all duration-300"
           >
-            <HiChevronRight size={28} />
+            <HiChevronRight size={24} />
           </button>
 
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-14 items-start border border-brand-secondary">

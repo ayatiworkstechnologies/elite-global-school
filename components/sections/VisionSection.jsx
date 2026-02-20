@@ -1,14 +1,9 @@
 "use client";
 
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const CONTENT = {
   vision: {
@@ -24,24 +19,20 @@ const CONTENT = {
 };
 
 export default function VisionSection() {
-  const sectionRef = useRef(null);
   const [mode, setMode] = useState("vision");
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start center", "end center"],
-  });
-
-  /* CHANGE CONTENT BASED ON SCROLL */
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (v > 0.5) setMode("mission");
-    else setMode("vision");
-  });
+  /* AUTO-TRANSITION LOGIC */
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setMode((prev) => (prev === "vision" ? "mission" : "vision"));
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const data = CONTENT[mode];
 
   return (
-    <section ref={sectionRef} className="section-lg bg-white overflow-hidden">
+    <section className="section-lg bg-white overflow-hidden">
       <div className="container-lg relative">
         {/* IMAGE BLOCK */}
         <div className="relative w-full lg:ml-auto lg:w-[70%]">
