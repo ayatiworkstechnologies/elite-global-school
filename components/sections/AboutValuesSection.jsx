@@ -61,6 +61,7 @@ export default function AboutValuesSection() {
         py-20 sm:py-24 lg:py-32
         bg-center bg-no-repeat
       "
+      style={{ backgroundImage: "url('/assets/about-bg.svg')" }}
     >
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {/* TOP CONTENT */}
@@ -121,25 +122,11 @@ export default function AboutValuesSection() {
               key={item.no}
               variants={cardItem}
               className="
-                group relative
-                px-6 py-10
+                relative
+                px-6 py-8
                 text-center lg:text-left
-                cursor-pointer overflow-hidden
               "
             >
-              {/* HOVER GLOW LAYER */}
-              <div className="absolute inset-0 bg-brand-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-none lg:rounded-xl" />
-
-              <div className="relative z-10 flex flex-col h-full justify-center">
-                <div className="text-4xl lg:text-5xl font-bold text-brand-primary group-hover:text-white transition-colors duration-500 mb-4 font-primary">
-                  {item.no}
-                </div>
-
-                <p className="text-lg text-text-secondary group-hover:text-white/90 transition-colors duration-500 leading-snug font-medium">
-                  {item.title}
-                </p>
-              </div>
-
               {/* DIVIDER */}
               {index !== VALUES.length - 1 && (
                 <span
@@ -147,12 +134,19 @@ export default function AboutValuesSection() {
                     hidden lg:block
                     absolute top-1/2 right-0
                     -translate-y-1/2
-                    h-[60%] w-px
-                    bg-gray-200
-                    group-hover:opacity-0 transition-opacity duration-300
+                    h-[120px] w-px
+                    bg-black/10
                   "
                 />
               )}
+
+              <div className="text-4xl font-bold text-black mb-3">
+                {item.no}
+              </div>
+
+              <p className="text-lg text-text-secondary leading-snug">
+                {item.title}
+              </p>
             </motion.div>
           ))}
         </motion.div>

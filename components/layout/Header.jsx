@@ -37,7 +37,7 @@ export default function Header() {
             <Link href="/">
               {" "}
               <Image
-                src="/elite-logo.png"
+                src="/elite-logos.png"
                 alt="Elite Global School"
                 width={160}
                 height={50}

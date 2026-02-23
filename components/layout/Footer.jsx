@@ -15,7 +15,6 @@ export default function Footer() {
     <footer className="bg-white border-t border-gray-200">
       {/* TOP FOOTER */}
       <div className="container-lg py-10 grid gap-12 md:grid-cols-4">
-
         {/* BRAND */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,7 +23,7 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <Image
-            src="/elite-logo.png"
+            src="/elite-logos.png"
             alt="Elite Global School"
             width={160}
             height={44}
@@ -50,8 +49,6 @@ export default function Footer() {
           <FooterLink href="/contact">Contact Us</FooterLink>
         </FooterColumn>
 
-
-
         <FooterColumn title="Contact Us" delay={0.2}>
           <p className="text-lg text-text-secondary leading-relaxed">
             <Link
@@ -60,8 +57,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-brand-primary transition"
             >
-              No. 48 & 49, Kumarswamy Nagar,<br />
-              Villivakkam,<br />
+              No. 48 & 49, Kumarswamy Nagar,
+              <br />
+              Villivakkam,
+              <br />
               Chennai – 600 049
             </Link>
           </p>
@@ -85,14 +84,25 @@ export default function Footer() {
           </p>
         </FooterColumn>
 
-
         {/* SOCIAL */}
         <FooterColumn title="Follow Us" delay={0.3}>
           <div className="flex items-center gap-4 mt-2">
-            <SocialIcon Icon={FaFacebookF} href="https://facebook.com/EliteGlobalSchools/" />
-            <SocialIcon Icon={FaInstagram} href="https://instagram.com/elite_global_schools_official/" />
-            <SocialIcon Icon={FaLinkedinIn} href="https://linkedin.com/company/elite-global-school" />
-            <SocialIcon Icon={FaYoutube} href="https://youtube.com/@EliteGlobalSchool" />
+            <SocialIcon
+              Icon={FaFacebookF}
+              href="https://facebook.com/EliteGlobalSchools/"
+            />
+            <SocialIcon
+              Icon={FaInstagram}
+              href="https://instagram.com/elite_global_schools_official/"
+            />
+            <SocialIcon
+              Icon={FaLinkedinIn}
+              href="https://linkedin.com/company/elite-global-school"
+            />
+            <SocialIcon
+              Icon={FaYoutube}
+              href="https://youtube.com/@EliteGlobalSchool"
+            />
           </div>
         </FooterColumn>
       </div>
@@ -101,7 +111,6 @@ export default function Footer() {
       <div className="border-t border-gray-300 py-3 text-center text-lg text-text-secondary">
         © {new Date().getFullYear()} Elite Global School. All Rights Reserved.
       </div>
-
     </footer>
   );
 }
@@ -127,22 +136,20 @@ function FooterColumn({ title, children, delay }) {
   );
 }
 
-function SocialIcon ({ Icon, href }) {
-return (
- <motion.a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    whileHover={{ y: -3, scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
-    className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-brand-secondary hover:bg-brand-primary hover:text-white transition-all duration-300"
-  >
-    <Icon size={20} />
-  </motion.a>
+function SocialIcon({ Icon, href }) {
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ y: -3, scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-brand-secondary hover:bg-brand-primary hover:text-white transition-all duration-300"
+    >
+      <Icon size={20} />
+    </motion.a>
   );
 }
-  
-
 
 function FooterLink({ href, children }) {
   return (
@@ -154,5 +161,3 @@ function FooterLink({ href, children }) {
     </Link>
   );
 }
-
-
