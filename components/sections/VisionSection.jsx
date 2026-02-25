@@ -57,14 +57,7 @@ export default function VisionSection() {
         </div>
 
         {/* GLASS CONTENT CARD */}
-        <div
-          className="
-            relative mt-8 bg-white border border-gray-200 shadow-lg rounded-xl p-6
-            lg:absolute lg:top-1/2 lg:right-[55%] lg:-translate-y-1/2 lg:mt-0
-            lg:max-w-xl lg:bg-white/5 lg:backdrop-blur-lg lg:border-white/40 lg:shadow-xl lg:p-10
-            z-20
-          "
-        >
+        <div className="relative mt-8 bg-white border border-gray-200 shadow-lg rounded-xl p-6 lg:absolute lg:top-1/2 lg:right-[55%] lg:-translate-y-1/2 lg:mt-0 lg:max-w-xl lg:bg-white/5 lg:backdrop-blur-lg lg:border-white/40 lg:shadow-xl lg:p-10 z-20">
           <AnimatePresence mode="wait">
             <motion.div
               key={data.title}

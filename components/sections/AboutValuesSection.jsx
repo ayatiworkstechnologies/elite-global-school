@@ -56,11 +56,7 @@ const cardItem = {
 export default function AboutValuesSection() {
   return (
     <section
-      className="
-        relative
-        py-20 sm:py-24 lg:py-32
-        bg-center bg-no-repeat
-      "
+      className="relative py-20 sm:py-24 lg:py-32 bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/assets/about-bg.svg')" }}
     >
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,34 +106,17 @@ export default function AboutValuesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="
-            grid grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-5
-            bg-white/90 shadow-lg
-          "
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 bg-white/90 shadow-lg"
         >
           {VALUES.map((item, index) => (
             <motion.div
               key={item.no}
               variants={cardItem}
-              className="
-                relative
-                px-6 py-8
-                text-center lg:text-left
-              "
+              className="relative px-6 py-8 text-center lg:text-left"
             >
               {/* DIVIDER */}
               {index !== VALUES.length - 1 && (
-                <span
-                  className="
-                    hidden lg:block
-                    absolute top-1/2 right-0
-                    -translate-y-1/2
-                    h-[120px] w-px
-                    bg-black/10
-                  "
-                />
+                <span className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 h-[120px] w-px bg-black/10" />
               )}
 
               <div className="text-4xl font-bold text-black mb-3">

@@ -11,10 +11,7 @@ export default function OurFocusSection() {
         backgroundImage: "url('/assets/about-bg.svg')",
       }}
     >
-     
-
       <div className="container-lg relative grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-        
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -40,8 +37,8 @@ export default function OurFocusSection() {
           {/* DESC */}
           <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-lg">
             To provide international standards of quality education, and
-            inculcate and improve the ability of our children to crack down
-            even competitive exams, NEET, IIT, JEE, etc.
+            inculcate and improve the ability of our children to crack down even
+            competitive exams, NEET, IIT, JEE, etc.
           </p>
         </motion.div>
 
@@ -75,22 +72,13 @@ function FocusCard({ Icon, text, delay }) {
       transition={{ duration: 0.6, ease: "easeOut", delay }}
       viewport={{ once: true }}
       whileHover={{ y: -6 }}
-      className="
-        bg-white
-        shadow-2xl
-        rounded-sm
-        p-6
-        border border-gray-100
-        transition
-      "
+      className="bg-white shadow-2xl rounded-sm p-6 border border-gray-100 transition"
     >
       <div className="w-15 h-15 rounded-md bg-brand-secondary/10 flex items-center justify-center text-brand-secondary mb-4">
         <Icon size={30} />
       </div>
 
-      <p className="text-xl text-text-secondary leading-relaxed">
-        {text}
-      </p>
+      <p className="text-xl text-text-secondary leading-relaxed">{text}</p>
     </motion.div>
   );
 }

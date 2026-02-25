@@ -4,8 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-
-/* DATA */
+import { ArrowRight } from "lucide-react"; // npm i lucide-react
 const ITEMS = [
   {
     no: "01",
@@ -49,32 +48,6 @@ const ITEMS = [
   },
 ];
 
-/* --- ANIMATION VARIANTS --- */
-const maskTextVariants = {
-  hidden: { y: "100%" },
-  visible: {
-    y: "0%",
-    transition: { duration: 0.7, ease: [0.33, 1, 0.68, 1] },
-  },
-};
-
-const curtainVariants = {
-  hidden: { scaleX: 1, originX: 0 },
-  visible: {
-    scaleX: 0,
-    originX: 1,
-    transition: { duration: 0.8, ease: "easeInOut", delay: 0.2 },
-  },
-};
-
-const imageScaleVariants = {
-  hidden: { scale: 1.4 },
-  visible: {
-    scale: 1,
-    transition: { duration: 1.2, ease: "easeOut", delay: 0.2 },
-  },
-};
-
 export default function CoreEthosSection() {
   const sectionRef = useRef(null);
 
@@ -84,45 +57,47 @@ export default function CoreEthosSection() {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 70,
+    damping: 24,
     restDelta: 0.001,
   });
 
-  /* HEADER HIDE LOGIC */
+  /* HEADER FADE */
   const headerOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
-  const headerY = useTransform(scrollYProgress, [0, 0.05], [0, -50]);
+  const headerY = useTransform(scrollYProgress, [0, 0.05], [0, -20]);
 
-  /* HORIZONTAL SCROLL */
+  /* HORIZONTAL TRACK */
   const x = useTransform(
     smoothProgress,
     [0, 1],
     ["0%", `-${(ITEMS.length - 1) * 100}%`],
   );
 
-  /* PARALLAX BACKGROUND */
-  const bgX = useTransform(smoothProgress, [0, 1], ["0%", "20%"]);
+  /* --- BALL ENTRANCE & PHYSICS --- */
+  // The ball only appears after scrolling starts (0 to 0.05 progress)
+  const ballOpacity = useTransform(scrollYProgress, [0, 0.05], [0, 1]);
+  const ballEntranceScale = useTransform(scrollYProgress, [0, 0.05], [0.5, 1]);
 
-  /* --- FOOTBALL PHYSICS (Adjusted for Top Position) --- */
-  const ballX = useTransform(smoothProgress, [0, 1], ["0%", "88%"]);
-  const ballRotate = useTransform(smoothProgress, [0, 1], [0, 1800]);
-  // Adjusted Y bounce to be tighter for top-alignment
-  const ballY = useTransform(
-    smoothProgress,
-    (latest) => Math.sin(latest * 15) * 40,
-  );
+  const ballX = useTransform(smoothProgress, [0, 1], ["0%", "90vw"]);
+  const ballRotate = useTransform(smoothProgress, [0, 1], [0, 3240]);
+
+  const ballY = useTransform(smoothProgress, (latest) => {
+    return Math.abs(Math.sin(latest * 12)) * 120;
+  });
+
+  const ballBounceScale = useTransform(smoothProgress, (latest) => {
+    return 1 + Math.abs(Math.sin(latest * 12)) * 0.15;
+  });
 
   const goNext = () => {
     if (!sectionRef.current) return;
-    const sectionTop = sectionRef.current.offsetTop;
-    const viewportHeight = window.innerHeight;
     const progress = scrollYProgress.get();
     const nextIndex = Math.min(
       ITEMS.length - 1,
       Math.floor(progress * ITEMS.length) + 1,
     );
     window.scrollTo({
-      top: sectionTop + nextIndex * viewportHeight,
+      top: sectionRef.current.offsetTop + nextIndex * window.innerHeight,
       behavior: "smooth",
     });
   };
@@ -130,158 +105,137 @@ export default function CoreEthosSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#f8f9fa] text-black"
+      className="relative bg-[#fcfcfc] text-black"
       style={{ height: `${ITEMS.length * 100}vh` }}
     >
-      <div className="sticky top-0 h-[100dvh] overflow-hidden">
-        {/* DYNAMIC BACKGROUND PATTERN */}
-        <motion.div
-          style={{ x: bgX }}
-          className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
-        >
-          <div
-            className="w-[150vw] h-full"
-            style={{
-              backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          ></div>
-        </motion.div>
-
+      <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col items-center justify-center">
         {/* HEADER */}
         <motion.div
           style={{ opacity: headerOpacity, y: headerY }}
-          className="absolute top-4 sm:top-6 left-0 right-0 z-50 text-center pointer-events-none px-4"
+          className="absolute top-12 left-0 right-0 z-10 text-center pointer-events-none px-4"
         >
-          <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-gray-500 uppercase">
-            CORE ETHICS OF
+          <span className="text-[10px] font-bold tracking-[0.4em] text-gray-400 uppercase">
+            OUR PHILOSOPHY
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight  mt-1 sm:mt-2 text-brand-primary">
+          <h2 className="text-3xl sm:text-5xl font-black mt-2 text-brand-primary">
             Elite Global School
           </h2>
         </motion.div>
 
-        {/* --- THE BALL (Moved to Top Section) --- */}
+        {/* --- THE DELAYED BALL --- */}
         <motion.div
-          className="absolute top-[12%] sm:top-[15%] left-[5%] sm:left-[8%] z-40 pointer-events-none"
-          style={{ x: ballX, y: ballY }}
+          className="absolute top-[12%] left-[5%] z-50 pointer-events-none flex flex-col items-center"
+          style={{
+            x: ballX,
+            opacity: ballOpacity,
+            scale: ballEntranceScale,
+          }}
         >
-          <motion.button
-            onClick={goNext}
-            className="relative pointer-events-auto z-10"
-            style={{ rotate: ballRotate }}
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="w-20 h-20 sm:w-23 sm:h-23 rounded-full shadow-2xl relative overflow-hidden">
-              <Image
-                src="/assets/ball.png"
-                alt="Football"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </motion.button>
-          {/* Dynamic Shadow */}
           <motion.div
-            className="absolute inset-0 w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-black/10 blur-lg -z-10"
+            style={{ y: ballY, rotate: ballRotate, scale: ballBounceScale }}
+          >
+            <motion.button
+              onClick={goNext}
+              className="relative pointer-events-auto cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="w-20 h-20 sm:w-28 sm:h-28 relative drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
+                <Image
+                  src="/assets/ball.png"
+                  alt="Football"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </motion.button>
+          </motion.div>
+
+          {/* DYNAMIC SHADOW */}
+          <motion.div
+            className="w-12 h-2 sm:w-20 sm:h-3 bg-black/10 blur-xl rounded-[100%]"
             style={{
-              scale: useTransform(ballY, [-40, 40], [0.8, 1.2]),
-              opacity: useTransform(ballY, [-40, 40], [0.2, 0.5]),
+              opacity: useTransform(ballY, [0, 120], [0.6, 0.1]),
+              scale: useTransform(ballY, [0, 120], [1.2, 0.5]),
+              marginTop: "20px",
             }}
           />
         </motion.div>
 
-        {/* TRACK */}
-        <motion.div style={{ x }} className="flex h-full">
+        {/* HORIZONTAL CONTENT TRACK */}
+        <motion.div style={{ x }} className="flex h-full w-full">
           {ITEMS.map((item) => (
             <div
               key={item.no}
-              className="min-w-full h-full flex items-center justify-center px-4 md:px-12 relative"
+              className="min-w-full h-full flex items-center justify-center px-6 lg:px-24"
             >
-              <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                {/* LEFT: TEXT CONTENT */}
-                <div className="relative z-10 order-2 lg:order-1 pt-4 lg:pt-0">
-                  <div className="absolute -top-12 lg:-top-24 -left-4 lg:-left-10 text-[6rem] sm:text-[9rem] lg:text-[12rem] font-black text-black/5 select-none pointer-events-none leading-none">
+              {/* Added mt-20 to give space between Ball/Title and Content */}
+              <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mt-20 sm:mt-24">
+                {/* TEXT SIDE */}
+                <div className="relative z-0 order-2 lg:order-1">
+                  <div className="absolute -top-24 -left-12 text-[10rem] lg:text-[18rem] font-black text-black/[0.05] select-none pointer-events-none leading-none">
                     {item.no}
                   </div>
 
                   <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.5 }}
-                    className="relative pl-2 md:mt-7"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className="relative"
                   >
-                    <div className="overflow-hidden mb-2  sm:mb-4">
-                      <motion.div variants={maskTextVariants}>
-                        <span className="px-3 py-1 rounded-full text-brand-secondary text-xs sm:text-md font-bold uppercase tracking-widest bg-white/50 backdrop-blur-sm border border-gray-100">
-                          {item.tag}
-                        </span>
-                      </motion.div>
+                    <div className="mb-4">
+                      <span className="px-4 py-1.5 rounded-full text-brand-secondary text-xs font-bold uppercase tracking-widest bg-brand-secondary/5 border border-brand-secondary/10">
+                        {item.tag}
+                      </span>
                     </div>
 
-                    <div className="overflow-hidden mb-3 sm:mb-6">
-                      <motion.h3
-                        variants={maskTextVariants}
-                        className="text-4xl sm:text-5xl lg:text-7xl font-black text-brand-primary leading-tight"
-                      >
-                        {item.title}
-                      </motion.h3>
-                    </div>
+                    <h3 className="text-5xl lg:text-8xl font-black text-brand-primary tracking-tighter mb-6 leading-[0.9]">
+                      {item.title}
+                    </h3>
 
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 0.4, duration: 1 }}
-                      className="text-sm sm:text-base lg:text-xl text-slate-600 max-w-md leading-relaxed"
-                    >
+                    <p className="text-gray-500 text-lg lg:text-xl max-w-md leading-relaxed mb-10">
                       {item.desc}
-                    </motion.p>
-
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 }}
-                      className="mt-4 sm:mt-8"
+                    </p>
+                    <Link
+                      href="/about"
+                      className="group relative inline-flex items-center gap-2 px-6 py-2 text-brand-secondary font-bold text-lg transition-all duration-300 rounded-full border border-transparent hover:border-brand-secondary hover:bg-brand-secondary/5 outline outline-0 hover:outline-2 outline-brand-secondary/20 outline-offset-4"
                     >
-                      <Link
-                        href="/about"
-                        className="group inline-flex items-center gap-3 font-semibold text-base sm:text-lg text-brand-secondary pb-1 hover:text-brand-accent transition-colors"
-                      >
-                        Read More{" "}
-                        <span className="group-hover:translate-x-1 transition-transform">
-                          →
-                        </span>
-                      </Link>
-                    </motion.div>
+                      <span>Learn More</span>
+
+                      <motion.div className="transition-transform duration-300 group-hover:translate-x-1">
+                        <ArrowRight size={22} strokeWidth={2.5} />
+                      </motion.div>
+
+                      {/* Optional: The animated line if you still want it, or remove for cleaner look */}
+                      <div className="absolute bottom-0 left-6 w-0 h-[2px] bg-brand-secondary transition-all duration-500 group-hover:w-[calc(100%-48px)]" />
+                    </Link>
                   </motion.div>
                 </div>
 
-                {/* RIGHT: IMAGE REVEAL */}
-                <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end mt-12 lg:mt-0">
+                {/* IMAGE SIDE */}
+                <div className="relative z-0 order-1 lg:order-2">
                   <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.5 }}
-                    className="relative w-full max-w-[600px] aspect-video lg:aspect-[4/3]"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    className="relative aspect-[4/3] overflow-hidden shadow-2xl"
                   >
-                    <div className="absolute inset-0 overflow-hidden shadow-2xl">
-                      <motion.div
-                        variants={imageScaleVariants}
-                        className="w-full h-full relative"
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </motion.div>
-                    </div>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
                     <motion.div
-                      variants={curtainVariants}
-                      className="absolute inset-0 z-20"
+                      initial={{ scaleX: 1 }}
+                      whileInView={{ scaleX: 0 }}
+                      transition={{
+                        duration: 1,
+                        ease: "easeInOut",
+                        delay: 0.2,
+                      }}
+                      className="absolute inset-0 z-10 origin-right"
                       style={{ backgroundColor: item.color }}
                     />
                   </motion.div>
