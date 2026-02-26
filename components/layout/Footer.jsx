@@ -50,7 +50,7 @@ export default function Footer() {
         </FooterColumn>
 
         <FooterColumn title="Contact Us" delay={0.2}>
-          <p className="text-lg text-text-secondary leading-relaxed">
+          {/* <p className="text-lg text-text-secondary leading-relaxed">
             <Link
               href="https://www.google.com/maps/search/?api=1&query=No.+48+%26+49,+Kumarswamy+Nagar,+Villivakkam,+Chennai+600049"
               target="_blank"
@@ -63,7 +63,7 @@ export default function Footer() {
               <br />
               Chennai – 600 049
             </Link>
-          </p>
+          </p> */}
 
           <p className="text-lg mt-3">
             <Link
