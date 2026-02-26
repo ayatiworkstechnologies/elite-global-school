@@ -108,8 +108,33 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM BAR */}
-      <div className="border-t border-gray-300 py-3 text-center text-lg text-text-secondary">
-        © {new Date().getFullYear()} Elite Global School. All Rights Reserved.
+      <div className="border-t border-gray-300 ">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-text-secondary text-center">
+          <p className="text-base md:text-lg flex flex-wrap items-center justify-center gap-2">
+            <span>
+              © {new Date().getFullYear()} Elite Global School. All Rights
+              Reserved.
+            </span>
+
+            <span className="hidden md:inline">|</span>
+            <Link
+              href="https://www.ayatiworks.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 font-semibold hover:opacity-80 transition-opacity duration-300"
+            >
+              <span className="flex items-center gap-2">
+                Designed & Developed by
+                <img
+                  src="/ayati-logo-web.png"
+                  alt="Ayatiworks"
+                  className="h-15 w-auto object-contain"
+                />
+                {/* <span className="text-[#b91c1c]">Team Ayatiworks</span> */}
+              </span>
+            </Link>
+          </p>
+        </div>
       </div>
     </footer>
   );
