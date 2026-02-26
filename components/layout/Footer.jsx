@@ -23,7 +23,7 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <Image
-            src="/elite-logos.png"
+            src="/logo-elite.png"
             alt="Elite Global School"
             width={160}
             height={44}

@@ -37,12 +37,12 @@ export default function Header() {
             <Link href="/">
               {" "}
               <Image
-                src="/elite-logos.png"
+                src="/logo-elite.png"
                 alt="Elite Global School"
                 width={160}
                 height={50}
                 priority
-                className="h-18 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
           </div>

@@ -121,14 +121,37 @@ export default function ContactSection() {
                 </a>
               </div>
 
-              {/* Address */}
+              {/* Campus 1 - Villivakkam */}
               <div className="flex items-start gap-4 group">
                 <div className="w-5 h-5 text-brand-secondary mt-0.5">
                   <MapPin size={20} strokeWidth={1.5} />
                 </div>
-                <span className="max-w-[280px] leading-relaxed group-hover:text-brand-primary transition-colors duration-300">
-                  No. 48&49, Kumaraswamy Nagar, Villivakkam, Chennai - 600049.
-                </span>
+                <div className="max-w-[320px] leading-relaxed group-hover:text-brand-primary transition-colors duration-300">
+                  <span className="font-semibold text-brand-primary block text-base mb-0.5">
+                    Villivakkam Campus
+                  </span>
+                  <span className="text-base">
+                    No. 48&49, Kumaraswamy Nagar, Villivakkam, Chennai - 600049.
+                  </span>
+                </div>
+              </div>
+
+              {/* Campus 2 - Madhavaram */}
+              <div className="flex items-start gap-4 group">
+                <div className="w-5 h-5 text-brand-secondary mt-0.5">
+                  <MapPin size={20} strokeWidth={1.5} />
+                </div>
+                <div className="max-w-[320px] leading-relaxed group-hover:text-brand-primary transition-colors duration-300">
+                  <span className="font-semibold text-brand-primary block text-base mb-0.5">
+                    Madhavaram Smart Campus
+                  </span>
+                  <span className="text-base">
+                    Survey No.221,225,227, Kosappur Village,{" "}
+                  </span>
+                  <span className="text-base">
+                    Madhavaram Taluk, Chennai - 600060.
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
