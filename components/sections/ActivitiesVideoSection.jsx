@@ -5,8 +5,8 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 export default function ActivitiesVideoSection() {
-  const videoId = "lZtuwfWUn2Q";
-  
+  const videoId = "3x4DAzlxsr8";
+
   // NOTE: mute=1 is REQUIRED for autoplay to work in 99% of browsers.
   // I have added 'controls=1' so users can easily turn the sound on.
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&rel=0&controls=1&showinfo=0`;
