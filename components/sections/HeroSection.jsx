@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SLIDES = [
-  { desktop: "/banner/banner-3.jpg", mobile: "/banner/banner-3-mob.jpg" },
-  { desktop: "/banner/banner-2.jpg", mobile: "/banner/banner-2-mob.jpg" },
-  { desktop: "/banner/banner-1.jpg", mobile: "/banner/banner-1-mob.jpg" },
+  { desktop: "/banner/banner-3.jpg", mobile: "/banner/banner-mob-3.webp" },
+  { desktop: "/banner/banner-2.jpg", mobile: "/banner/banner-mob-2.webp" },
+  { desktop: "/banner/banner-1.webp", mobile: "/banner/banner-mob-1.webp" },
 ];
 
 /* --- PAPER ROUND ROTATE ANIMATION --- */
@@ -87,9 +87,8 @@ export default function HeroSlider() {
             alt={`Banner ${index + 1}`}
             fill
             priority={index === 0}
-            quality={95}
+            unoptimized
             className=""
-            sizes="100vw"
           />
           {/* Subtle overlay to enhance the 3D depth during the turn */}
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
@@ -109,27 +108,9 @@ export default function HeroSlider() {
       </div>
 
       {/* 3. MINIMALIST PAGINATION */}
-      <div className="absolute bottom-6 sm:bottom-12 left-4 sm:left-8 right-4 sm:right-8 z-30 flex items-center justify-between pointer-events-none">
-        <div className="flex gap-2 sm:gap-3 pointer-events-auto">
-          {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setPage([i, i > index ? 1 : -1])}
-              className="group py-2"
-            >
-              <div
-                className={`h-[3px] rounded-full transition-all duration-700 ${
-                  i === index
-                    ? "w-10 sm:w-16 bg-brand-primary"
-                    : "w-4 sm:w-6 bg-brand-primary/40 group-hover:bg-brand-primary/70"
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-
+      <div className="absolute bottom-6 sm:bottom-12 left-0 right-0 z-30 hidden sm:flex items-center justify-center pointer-events-none">
         {/* Cinematic Slide Counter */}
-        <div className="text-brand-primary flex items-baseline gap-1 sm:gap-2 overflow-hidden h-10 bg-black/10 sm:bg-transparent px-2 sm:px-0 rounded-md backdrop-blur-sm sm:backdrop-blur-none">
+        <div className="text-brand-primary flex items-baseline gap-1 sm:gap-2 overflow-hidden h-10 bg-black/10 sm:bg-transparent px-2 sm:px-0 rounded-md backdrop-blur-sm sm:backdrop-blur-none pointer-events-auto">
           <motion.span
             key={index}
             initial={{ y: "100%" }}

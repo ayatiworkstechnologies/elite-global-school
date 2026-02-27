@@ -19,9 +19,9 @@ Alhamdulillah, this is the third year of this programme, where we had a huge num
       "Age Group: 5-12 years",
       "Timing: 10 am - 12 noon",
     ],
-    description_1: "For More Details Click the button below to join the group", 
+    description_1: "For More Details Click the button below to join the group",
     ctaText: "Join Group",
-    image: "/assets/news-img-1.png", 
+    image: "/assets/news-img-1.png",
     ctaLink: "https://chat.whatsapp.com/DQAg6bYbsmtBURipaSACTY",
   },
   {
@@ -38,7 +38,7 @@ Karate.`,
       "6:30pm to 8:30pm",
     ],
     ctaText: "Join Group",
-    image: "/assets/news-img-2.png", 
+    image: "/assets/news-img-2.png",
     ctaLink: "https://chat.whatsapp.com/HomDoAnqvdfGQ8XDoqPggN",
   },
   {
@@ -54,7 +54,7 @@ Karate.`,
       "To Score more marks",
     ],
     ctaText: "Join Group",
-    image: "/assets/news-img-3.png", 
+    image: "/assets/news-img-3.png",
     ctaLink: "https://chat.whatsapp.com/GwaWSFj6wVd7GAngnyHkvo",
   },
 ];
@@ -63,7 +63,7 @@ export default function NewsEventsSection() {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
-        
+
         {/* --- HEADER --- */}
         <div className="text-center mb-20">
           <motion.span
@@ -93,9 +93,8 @@ export default function NewsEventsSection() {
             return (
               <div
                 key={item.id}
-                className={`flex flex-col ${
-                  isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                } gap-12 lg:gap-20 items-center`}
+                className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } gap-12 lg:gap-20 items-center`}
               >
                 {/* IMAGE COLUMN */}
                 <motion.div
@@ -110,6 +109,7 @@ export default function NewsEventsSection() {
                       src={item.image}
                       alt={item.title}
                       fill
+                      unoptimized
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 border-8 border-white/20 pointer-events-none"></div>
@@ -162,12 +162,12 @@ export default function NewsEventsSection() {
                     </div>
                   )}
 
-                   <p className="text-gray-600 text-lg leading-relaxed mb-6 whitespace-pre-line">
+                  <p className="text-gray-600 text-lg leading-relaxed mb-6 whitespace-pre-line">
                     {item.description_1}
                   </p>
 
                   <Link href={item.ctaLink} passHref legacyBehavior>
-                    <motion.a 
+                    <motion.a
                       whileHover={{ x: 10 }}
                       className="inline-flex items-center gap-2 text-brand-secondary font-bold uppercase tracking-wider text-sm group cursor-pointer"
                     >

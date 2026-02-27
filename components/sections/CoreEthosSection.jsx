@@ -144,6 +144,7 @@ export default function CoreEthosSection() {
                   src="/assets/ball.png"
                   alt="Football"
                   fill
+                  unoptimized
                   className="object-contain"
                   priority
                 />
@@ -225,6 +226,7 @@ export default function CoreEthosSection() {
                       src={item.image}
                       alt={item.title}
                       fill
+                      unoptimized
                       className="object-cover"
                     />
                     <motion.div

@@ -16,9 +16,9 @@ We thought of filling this gap by giving our children the opportunity for them t
 
 /* ONLY IMAGES SLIDE */
 const IMAGES = [
-  { src: "/assets/img-1.jpg", label: "FOOTBALL TRAINING" },
-  { src: "/assets/img-2.jpg", label: "KARATE TRAINING" },
-  { src: "/assets/img-3.jpg", label: "SILAMBAM TRAINING" },
+  { src: "/assets/fac-3.webp", label: "FOOTBALL TRAINING" },
+  { src: "/assets/fac-1.webp", label: "KARATE TRAINING" },
+  { src: "/assets/fac-2.webp", label: "SILAMBAM TRAINING" },
   { src: "/assets/img-4.jpg", label: "CRICKET TRAINING" },
   { src: "/assets/img-6.jpg", label: "TABLE TENNIS TRAINING" },
 ];
@@ -75,6 +75,7 @@ export default function SportsAcademyCard() {
                     alt={IMAGES[index].label}
                     width={640}
                     height={740}
+                    unoptimized
                     className="w-full h-140 object-cover"
                     priority
                   />

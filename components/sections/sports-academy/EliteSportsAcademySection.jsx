@@ -9,21 +9,21 @@ const programs = [
   {
     id: 1,
     title: "Football",
-    image: "/assets/img-1.jpg",
+    image: "/assets/fac-3.webp",
     description:
       "Comprehensive tactical and physical training for offensive and defensive positions.",
   },
   {
     id: 2,
     title: "KARATE TRAINING",
-    image: "/assets/img-2.jpg",
+    image: "/assets/fac-1.webp",
     description:
       "Focus on skill development, game IQ, and strength conditioning for all court positions.",
   },
   {
     id: 3,
     title: "SILAMBAM TRAINING",
-    image: "/assets/img-3.jpg",
+    image: "/assets/fac-2.webp",
     description:
       "Clay and hard court training focused on technique, agility, and mental toughness.",
   },
@@ -34,15 +34,9 @@ const programs = [
     description:
       "Comprehensive coaching covering batting stance, bowling action, and fielding drills.",
   },
+
   {
     id: 5,
-    title: "CHESS TRAINING",
-    image: "/assets/img-5.jpg",
-    description:
-      "Strategic mental conditioning focused on opening theories and endgame proficiency.",
-  },
-  {
-    id: 6,
     title: "TABLE TENNIS TRAINING",
     image: "/assets/img-6.jpg",
     description:

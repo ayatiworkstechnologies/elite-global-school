@@ -11,10 +11,10 @@ export default function MainHero({
   imageMobile = "", // Default for Mobile
 }) {
   return (
-    <section className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
+    <section className="relative h-[60vh] lg:h-[70vh] overflow-hidden">
 
       {/* === BACKGROUND IMAGES === */}
-      
+
       {/* 1. Desktop Image (Visible on md screens and up) */}
       <div className="hidden md:block absolute inset-0 w-full h-full">
         <Image
@@ -22,6 +22,7 @@ export default function MainHero({
           alt={`${title} Banner`}
           fill
           priority
+          unoptimized
           className="object-cover"
         />
       </div>
@@ -33,6 +34,7 @@ export default function MainHero({
           alt={`${title} Banner`}
           fill
           priority
+          unoptimized
           className="object-cover"
         />
       </div>

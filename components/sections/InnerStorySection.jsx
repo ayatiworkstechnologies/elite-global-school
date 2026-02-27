@@ -27,19 +27,21 @@ export default function InnerStorySection() {
       >
         {/* DESKTOP IMAGE */}
         <Image
-          src="/assets/inner-bg.jpg"            // desktop image
+          src="/assets/highlights.jpg"
           alt="Elite Global School Vision"
           fill
           priority
+          unoptimized
           className="hidden md:block object-cover"
         />
 
         {/* MOBILE IMAGE */}
         <Image
-          src="/assets/inner-bg-mob.jpg"     // mobile image
+          src="/assets/highlights-mob.jpg"
           alt="Elite Global School Vision Mobile"
           fill
           priority
+          unoptimized
           className="block md:hidden object-cover"
         />
       </motion.div>

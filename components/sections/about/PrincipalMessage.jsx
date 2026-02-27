@@ -120,8 +120,9 @@ export default function PrincipalMessage() {
                 <Image
                   src="/assets/about-01.png"
                   alt="Principal Dr. Eleanor Vance"
-                  width={600} // Set this to the actual width of your image (or higher)
-                  height={800} // Set this to the actual height of your image
+                  width={600}
+                  height={800}
+                  unoptimized
                   className="w-full h-auto object-contain"
                   priority
                 />

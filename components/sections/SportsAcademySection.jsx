@@ -62,6 +62,7 @@ export default function SportsAcademySection() {
                     alt={SLIDES[index].title}
                     width={620}
                     height={420}
+                    unoptimized
                     className="w-full h-auto object-cover"
                   />
                 </div>
