@@ -30,7 +30,7 @@ const programs = [
   {
     id: 4,
     title: "CRICKET TRAINING",
-    image: "/assets/img-4.jpg",
+    image: "/assets/fac-4.jpeg",
     description:
       "Comprehensive coaching covering batting stance, bowling action, and fielding drills.",
   },
@@ -38,7 +38,7 @@ const programs = [
   {
     id: 5,
     title: "TABLE TENNIS TRAINING",
-    image: "/assets/img-6.jpg",
+    image: "/assets/fac-5.png",
     description:
       "High-speed training designed to improve reflex speed and spin techniques.",
   },
