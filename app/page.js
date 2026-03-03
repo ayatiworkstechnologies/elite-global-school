@@ -13,8 +13,8 @@ import Image from "next/image";
 
 export const metadata = {
   title:
-    "Islamic schools in Chennai, Elite Global School | Enlighten Knowledge",
-  description: "A place where every learner is meant to be a star",
+    "Elite Global School – Top CBSE School in Chennai | Academics, Sports & Character Building",
+  description: "Elite Global School is a leading CBSE School in Chennai offering academic excellence, structured CBSE curriculum, advanced learning methods, sports training, and strong character building. We focus on holistic development to shape confident, disciplined, and future-ready students.",
   alternates: {
     canonical: "/",
   },

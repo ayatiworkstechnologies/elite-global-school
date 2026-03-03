@@ -11,7 +11,7 @@ const ITEMS = [
     tag: "Future Ready",
     title: "Empower",
     desc: "As a committed 21st century learning organisation, Elite Global School is focusing on cultivating a diverse, effective program.",
-    image: "/assets/ethos-1.jpg",
+    image: "/assets/ethos-6.jpg",
     color: "#FF6B6B",
   },
   {
