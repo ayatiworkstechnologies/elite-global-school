@@ -19,7 +19,8 @@ const NAV_ITEMS = [
 ];
 
 export default function Header() {
-  const pathname = usePathname();
+  const rawPathname = usePathname();
+  const pathname = rawPathname === "/" ? "/" : rawPathname.replace(/\/+$/, "");
   const [open, setOpen] = useState(false);
 
   return (
