@@ -91,7 +91,7 @@ export default function UniquenessSection() {
                 unoptimized
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-0 p-4 text-white">
                 <h4 className="font-primary text-xl mb-1">{item.title}</h4>
                 <p className="text-sm text-white/90">{item.desc}</p>
@@ -141,7 +141,7 @@ export default function UniquenessSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-60 group-hover:opacity-80"}`}
+                  className={`absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-70 group-hover:opacity-90"}`}
                 />
 
                 <div

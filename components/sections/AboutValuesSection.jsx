@@ -94,10 +94,11 @@ export default function AboutValuesSection() {
             viewport={{ once: true }}
             className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-xl"
           >
-            Elite Global, a new born galaxy with billions of dreams to mould our
-            children to make them understand and identify the Creator and to
-            enlighten their knowledge beneficial for both worlds.
+            At Elite Global School, learning goes beyond classrooms, nurturing young minds today for tomorrow’s opportunities. We shape confident thinkers, compassionate leaders, and future-ready achievers equipped to thrive in a dynamic world. <br />
+            Empowering every learner to grow with purpose and perform with confidence.
+
           </motion.p>
+
         </div>
 
         {/* VALUES STRIP */}

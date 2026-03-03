@@ -17,10 +17,10 @@ We thought of filling this gap by giving our children the opportunity for them t
 /* ONLY IMAGES SLIDE */
 const IMAGES = [
   { src: "/assets/fac-3.webp", label: "FOOTBALL TRAINING" },
-  { src: "/assets/fac-1.webp", label: "KARATE TRAINING" },
+  { src: "/assets/fac-1.jpg", label: "KARATE TRAINING" },
   { src: "/assets/fac-2.webp", label: "SILAMBAM TRAINING" },
   { src: "/assets/fac-4.jpeg", label: "CRICKET TRAINING" },
-  { src: "/assets/fac-5.png", label: "TABLE TENNIS TRAINING" },
+  { src: "/assets/fac-5.jpg", label: "TABLE TENNIS TRAINING" },
 ];
 
 export default function SportsAcademyCard() {

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SLIDES = [
-  { desktop: "/banner/banner-3.jpg", mobile: "/banner/banner-mob-3.webp" },
+  { desktop: "/banner/banner-4.jpg", mobile: "/banner/banner-mob-4.jpg" },
   { desktop: "/banner/banner-2.jpg", mobile: "/banner/banner-mob-2.webp" },
   { desktop: "/banner/banner-1.webp", mobile: "/banner/banner-mob-1.webp" },
 ];
