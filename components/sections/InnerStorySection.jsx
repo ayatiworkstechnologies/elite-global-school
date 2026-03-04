@@ -30,7 +30,7 @@ export default function InnerStorySection() {
         >
           {/* DESKTOP IMAGE */}
           <Image
-            src="/assets/highlights.jpg"
+            src="/assets/high.jpg"
             alt="Elite Global School Vision"
             fill
             priority
@@ -40,7 +40,7 @@ export default function InnerStorySection() {
 
           {/* MOBILE IMAGE */}
           <Image
-            src="/assets/highlights-mob.jpg"
+            src="/assets/high-mob.jpg"
             alt="Elite Global School Vision Mobile"
             fill
             priority

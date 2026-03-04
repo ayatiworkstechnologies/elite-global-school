@@ -77,7 +77,7 @@ const MADHAVARAM_DATA = {
     term2: "₹13,500",
     term3: "₹13,500",
     features: defaultFeatures,
-    hasUpgradeBenefit: true,
+    // hasUpgradeBenefit: true,
     benefitTitle: "New Campus Upgrade Benefit",
     benefitTextStart: "A one-time flat discount of",
     benefitAmount: "₹2,500/-",
@@ -241,11 +241,10 @@ export default function FeeStructure() {
                     setActiveGrade(Object.keys(feeData[campus])[0]);
                   }
                 }}
-                className={`relative px-8 md:px-12 py-3 rounded-full text-base font-black transition-all ${
-                  activeCampus === campus
-                    ? "text-white shadow-md"
-                    : "text-gray-500 hover:text-brand-primary"
-                }`}
+                className={`relative px-8 md:px-12 py-3 rounded-full text-base font-black transition-all ${activeCampus === campus
+                  ? "text-white shadow-md"
+                  : "text-gray-500 hover:text-brand-primary"
+                  }`}
               >
                 {activeCampus === campus && (
                   <motion.div
@@ -266,11 +265,10 @@ export default function FeeStructure() {
                 <button
                   key={grade}
                   onClick={() => setActiveGrade(grade)}
-                  className={`relative px-6 py-3 rounded-xl text-sm font-black transition-all border ${
-                    activeGrade === grade
-                      ? "border-brand-primary text-brand-primary bg-brand-primary/5"
-                      : "border-gray-200 text-gray-500 hover:border-brand-primary/30 hover:text-brand-primary bg-white"
-                  }`}
+                  className={`relative px-6 py-3 rounded-xl text-sm font-black transition-all border ${activeGrade === grade
+                    ? "border-brand-primary text-brand-primary bg-brand-primary/5"
+                    : "border-gray-200 text-gray-500 hover:border-brand-primary/30 hover:text-brand-primary bg-white"
+                    }`}
                 >
                   <span className="relative z-10 whitespace-nowrap">
                     {grade}
