@@ -9,12 +9,12 @@ const CONTENT = {
   vision: {
     title: "Our Vision",
     text: `Our vision is to build a sturdy and highly educated citizen who are articulate, thoughtful, trusts to express and debate ideas and actively contributes to their own and others growth and also to uphold a learning community that produces leaders through faith, knowledge and inspiration.`,
-    image: "/assets/our-vision.jpg",
+    image: "/assets/our-vision-1.jpg",
   },
   mission: {
     title: "Our Mission",
     text: `Elite Global is dedicated to build an enriched learning environment using modern-day teaching pedagogy to cultivate an innovative and rigorous academic program streamed with CBSE Curriculum.`,
-    image: "/assets/our-mission.jpg",
+    image: "/assets/our-mission-1.jpg",
   },
 };
 
