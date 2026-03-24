@@ -11,7 +11,7 @@ const facilities = [
     subtitle: "Precision Training",
     description:
       "Professional archery range specifically designed for precision, focus, and technique development.",
-    image: "/assets/facilities-1.jpg",
+    image: "/assets/facilities-1.webp",
   },
   {
     id: "shooting",
@@ -19,7 +19,7 @@ const facilities = [
     subtitle: "Standard Range",
     description:
       "Safe and controlled shooting range to practice marksmanship and concentration under expert guidance.",
-    image: "/assets/facilities-9.jpg",
+    image: "/assets/facilities-11.webp",
   },
   {
     id: "cricket",
@@ -27,7 +27,7 @@ const facilities = [
     subtitle: "Practice Nets",
     description:
       "Dedicated cricket nets and pitch for batting, bowling, and fielding drills to hone cricketing skills.",
-    image: "/assets/facilities-3.png",
+    image: "/assets/facilities-3.webp",
   },
   {
     id: "football",
@@ -35,7 +35,7 @@ const facilities = [
     subtitle: "FIFA Standard",
     description:
       "Professional-grade turf designed for skill development, stamina building, and tactical teamwork.",
-    image: "/assets/facilities-4.png",
+    image: "/assets/facilities-4.webp",
   },
   {
     id: "tennis",
@@ -43,7 +43,7 @@ const facilities = [
     subtitle: "Synthetic Courts",
     description:
       "High-quality tennis courts designed for optimal grip, bounce, and all-weather gameplay.",
-    image: "/assets/facilities-5.jpg",
+    image: "/assets/facilities-5.webp",
   },
   {
     id: "martial-arts",
@@ -51,7 +51,7 @@ const facilities = [
     subtitle: "Indoor Dojo",
     description:
       "Spacious, climate-controlled indoor dojo equipped with professional safety mats.",
-    image: "/assets/facilities-6.png",
+    image: "/assets/facilities-6.webp",
   },
   {
     id: "self-defence",
@@ -59,7 +59,7 @@ const facilities = [
     subtitle: "Tactical Arena",
     description:
       "Specialized zones for teaching crucial self-defense techniques, building confidence and physical resilience.",
-    image: "/assets/facilities-7.jpg",
+    image: "/assets/facilities-7.webp",
   },
   {
     id: "skating",
@@ -67,7 +67,7 @@ const facilities = [
     subtitle: "Skating Rink",
     description:
       "Smooth, well-maintained skating rink perfect for roller skating practice, balance, and agility training.",
-    image: "/assets/facilities-10.jpg",
+    image: "/assets/facilities-10.webp",
   },
 ];
 
