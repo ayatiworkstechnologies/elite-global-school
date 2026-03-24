@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const programs = [
   {
     id: 1,
-    title: "Football",
+    title: "FOOTBALL TRAINING",
     image: "/assets/fac-3.webp",
     description:
       "Comprehensive tactical and physical training for offensive and defensive positions.",

@@ -19,7 +19,7 @@ const facilities = [
     subtitle: "Standard Range",
     description:
       "Safe and controlled shooting range to practice marksmanship and concentration under expert guidance.",
-    image: "/assets/facilities-2.jpg",
+    image: "/assets/facilities-9.jpg",
   },
   {
     id: "cricket",
@@ -67,7 +67,7 @@ const facilities = [
     subtitle: "Skating Rink",
     description:
       "Smooth, well-maintained skating rink perfect for roller skating practice, balance, and agility training.",
-    image: "/assets/facilities-8.jpg",
+    image: "/assets/facilities-10.jpg",
   },
 ];
 

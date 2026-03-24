@@ -21,6 +21,12 @@ const IMAGES = [
   { src: "/assets/fac-2.webp", label: "SILAMBAM TRAINING" },
   { src: "/assets/fac-4.jpeg", label: "CRICKET TRAINING" },
   { src: "/assets/fac-5.jpg", label: "TABLE TENNIS TRAINING" },
+  { src: "/assets/fac-6.jpg", label: "SKATING TRAINING" },
+  { src: "/assets/fac-7.jpg", label: "ARCHERY TRAINING" },
+  { src: "/assets/fac-8.jpg", label: "SHOOTING GAME TRAINING" },
+  { src: "/assets/fac-9.jpg", label: "TENNIS TRAINING" },
+  { src: "/assets/fac-10.jpg", label: "SELF DEFENCE TRAINING" },
+  { src: "/assets/fac-11.jpg", label: "MARTIAL ARTS TRAINING" },
 ];
 
 export default function SportsAcademyCard() {
