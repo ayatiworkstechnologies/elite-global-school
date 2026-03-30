@@ -16,7 +16,7 @@ const programs = [
   {
     id: 2,
     title: "KARATE TRAINING",
-    image: "/assets/fac-1.jpg",
+    image: "/assets/fac-1.webp",
     description:
       "Focus on skill development, game IQ, and strength conditioning for all court positions.",
   },
@@ -38,49 +38,49 @@ const programs = [
   {
     id: 5,
     title: "TABLE TENNIS TRAINING",
-    image: "/assets/fac-5.jpg",
+    image: "/assets/fac-5.webp",
     description:
       "High-speed training designed to improve reflex speed and spin techniques.",
   },
   {
     id: 6,
     title: "SKATING TRAINING",
-    image: "/assets/fac-6.jpg",
+    image: "/assets/fac-6.webp",
     description:
       "Smooth skating sessions improve balance, coordination, speed, control, and endurance.",
   },
   {
     id: 7,
     title: "ARCHERY TRAINING",
-    image: "/assets/fac-7.jpg",
+    image: "/assets/fac-7.webp",
     description:
       "Precision-based practice sharpens focus, accuracy, patience, control, and mental discipline.",
   },
   {
     id: 8,
     title: "SHOOTING GAME TRAINING",
-    image: "/assets/fac-8.jpg",
+    image: "/assets/fac-8.webp",
     description:
       "Target practice develops concentration, accuracy, reflexes, control, and steady focus.",
   },
   {
     id: 9,
     title: "TENNIS TRAINING",
-    image: "/assets/fac-9.jpg",
+    image: "/assets/fac-9.webp",
     description:
       "Court training improves agility, timing, coordination, strength, endurance, and strategy.",
   },
   {
     id: 10,
     title: "SELF DEFENCE TRAINING",
-    image: "/assets/fac-10.jpg",
+    image: "/assets/fac-10.webp",
     description:
       "Practical techniques build confidence, awareness, strength, quick reflexes, and safety skills.",
   },
   {
     id: 11,
     title: "MARTIAL ARTS TRAINING",
-    image: "/assets/fac-11.jpg",
+    image: "/assets/fac-11.webp",
     description:
       "Structured training builds strength, discipline, agility, focus, and confidence daily.",
   },
