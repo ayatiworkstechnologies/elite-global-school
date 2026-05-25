@@ -6,9 +6,9 @@ import Image from "next/image";
 import {
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
   FaYoutube,
 } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -89,19 +89,19 @@ export default function Footer() {
           <div className="flex items-center gap-4 mt-2">
             <SocialIcon
               Icon={FaFacebookF}
-              href="https://facebook.com/EliteGlobalSchools/"
+              href="https://www.facebook.com/EliteGlobalSchools/"
             />
             <SocialIcon
               Icon={FaInstagram}
-              href="https://instagram.com/elite_global_schools_official/"
+              href="https://www.instagram.com/elite_global_schools/"
             />
             <SocialIcon
-              Icon={FaLinkedinIn}
-              href="https://linkedin.com/company/elite-global-school"
+              Icon={FaThreads}
+              href="https://www.threads.com/@elite_global_schools"
             />
             <SocialIcon
               Icon={FaYoutube}
-              href="https://youtube.com/@EliteGlobalSchool"
+              href="https://www.youtube.com/@EliteGlobalSchool"
             />
           </div>
         </FooterColumn>

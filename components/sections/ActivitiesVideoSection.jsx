@@ -51,7 +51,7 @@ export default function ActivitiesVideoSection() {
           className="mt-10 flex justify-center px-4"
         >
           <Link
-            href="https://www.youtube.com/channel/UCZpuYEecLKm6TAA-duHzSRQ/videos"
+            href="https://www.youtube.com/@EliteGlobalSchool"
             target="_blank"
           >
             <Button variant="primary">View more videos →</Button>
