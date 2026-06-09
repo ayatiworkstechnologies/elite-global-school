@@ -9,7 +9,7 @@ import { useState } from "react";
 const API_URL =
   "https://api.ayatiworks.com/api/v1/public/elite-global-school/contact_us/records";
 const API_KEY =
-  "fa724d2d0e2b832193fb644c31dc0b2139858f9ecf211a4899377b92d15b2a6f";
+  "c85f8310fa24d2959b70d393a8e8fd3ce4a6b1b2ca429ec6d4e6b90401225cd7";
 
 /* ──────────────────────────────────────────
    ANIMATION VARIANTS
