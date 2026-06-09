@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { MapPin, Phone, Mail, Building2 } from "lucide-react";
 import Button from "../ui/Button";
+import { submitContactForm } from "@/lib/contactSubmit";
 
 /* ───────────────────────────────────
    CAMPUS DATA
@@ -48,25 +49,9 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     try {
-      const response = await fetch(
-        "https://api.ayatiworks.com/api/v1/public/elite-global-school/contact_us/records",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-API-Key":
-              "c85f8310fa24d2959b70d393a8e8fd3ce4a6b1b2ca429ec6d4e6b90401225cd7",
-          },
-          body: JSON.stringify({ data }),
-        },
-      );
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        reset();
-      } else {
-        setSubmitStatus("error");
-      }
+      await submitContactForm(data);
+      setSubmitStatus("success");
+      reset();
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");

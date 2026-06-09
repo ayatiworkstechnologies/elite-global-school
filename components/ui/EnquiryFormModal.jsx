@@ -2,15 +2,11 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { submitContactForm } from "@/lib/contactSubmit";
 
 /* ──────────────────────────────────────────
    API CONFIG (same endpoint as ContactSection)
 ────────────────────────────────────────── */
-const API_URL =
-  "https://api.ayatiworks.com/api/v1/public/elite-global-school/contact_us/records";
-const API_KEY =
-  "c85f8310fa24d2959b70d393a8e8fd3ce4a6b1b2ca429ec6d4e6b90401225cd7";
-
 /* ──────────────────────────────────────────
    ANIMATION VARIANTS
 ────────────────────────────────────────── */
@@ -86,14 +82,7 @@ export default function EnquiryFormModal({
         source: isProspectus ? "prospectus" : "contact_modal",
       };
 
-      await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-Key": API_KEY,
-        },
-        body: JSON.stringify({ data: payload }),
-      });
+      await submitContactForm(payload);
 
       /* If prospectus → trigger download */
       if (isProspectus) {
@@ -113,6 +102,7 @@ export default function EnquiryFormModal({
       }, 3000);
     } catch (err) {
       console.error("Submit error:", err);
+      setErrors({ submit: "Something went wrong. Please try again later." });
     } finally {
       setSubmitting(false);
     }
@@ -292,6 +282,11 @@ export default function EnquiryFormModal({
                           ? "Download Prospectus"
                           : "Send Message"}
                     </motion.button>
+                    {errors.submit && (
+                      <p className="text-center text-xs text-red-500">
+                        {errors.submit}
+                      </p>
+                    )}
                   </form>
 
                   <p className="mt-4 text-center text-xs text-gray-400">
