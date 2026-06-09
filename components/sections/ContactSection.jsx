@@ -49,7 +49,7 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     try {
-      await submitContactForm(data);
+      await submitContactForm({ ...data, source: "contact_page" });
       setSubmitStatus("success");
       reset();
     } catch (error) {
