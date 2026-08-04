@@ -3,6 +3,17 @@ const API_URL =
 const API_KEY =
   "ad0b8863350e55490f2777cb72a836fcb38c27d6e65bb960fd2c273b508e4696";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers":
+    "Content-Type, Authorization, X-API-Key, X-Requested-With",
+};
+
+export async function OPTIONS() {
+  return Response.json({}, { status: 200, headers: corsHeaders });
+}
+
 export async function POST(request) {
   try {
     const payload = await request.json();
@@ -23,13 +34,20 @@ export async function POST(request) {
 
     return Response.json(
       typeof body === "string" ? { message: body } : body,
-      { status: response.status },
+      {
+        status: response.status,
+        headers: corsHeaders,
+      },
     );
   } catch (error) {
     console.error("Contact API error:", error);
     return Response.json(
       { error: "Unable to submit contact form" },
-      { status: 500 },
+      {
+        status: 500,
+        headers: corsHeaders,
+      },
     );
   }
 }
+
