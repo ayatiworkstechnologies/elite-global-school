@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 const API_URL =
   "https://api.ayatiworks.com/api/v1/public/elite-global-school/contact_us/records";
 const API_KEY =
