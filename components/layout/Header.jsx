@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: "Admission", href: "/admission" },
   { label: "About Us", href: "/about" },
   { label: "Sports Academy", href: "/sports-academy" },
+  { label: "Mandatory Disclosure", href: "/mandatory-disclosure" },
   { label: "Gallery", href: "/gallery" },
 
   // { label: "News & Events", href: "/news-events" },
