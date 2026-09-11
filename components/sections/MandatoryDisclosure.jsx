@@ -37,12 +37,12 @@ const documentsInformation = [
   {
     sno: "3",
     document: "COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT",
-    file: "/documents/TN-NOC-EGS.pdf",
+    file: "/files/TN-NOC-EGS.pdf",
   },
   {
     sno: "4",
     document: "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT'S RENEWAL IF APPLICABLE",
-    file: "/documents/recognition-certificate.pdf",
+    file: "/files/recognition-certificate.pdf",
   },
   {
     sno: "5",
