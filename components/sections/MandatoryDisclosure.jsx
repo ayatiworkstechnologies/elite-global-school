@@ -37,7 +37,7 @@ const documentsInformation = [
   {
     sno: "3",
     document: "COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT",
-    file: "/documents/noc-certificate.pdf",
+    file: "/documents/TN-NOC-EGS.pdf",
   },
   {
     sno: "4",
@@ -52,7 +52,7 @@ const documentsInformation = [
   {
     sno: "6",
     document: "COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY",
-    file: "/files/FIRE_CERTIFICATE.pdf",
+    file: "/files/Fire-Certificate.pdf",
   },
   {
     sno: "7",
@@ -65,6 +65,26 @@ const documentsInformation = [
     document: "COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES",
     file: "/files/SANITATION_CERTIFICATE.pdf",
   },
+  {
+    sno: "9",
+    document: "SANITARY SELF ATTESTED EGS CERTIFICATES",
+    file: "/files/Sanitary-self-EGS.pdf",
+  },
+  {
+    sno: "10",
+    document: "TRUST DEED VM YOOSUF EGS CERTIFICATES",
+    file: "/files/Trust-deed.pdf",
+  },
+  {
+    sno: "11",
+    document: "BUILDING SAFETY CERTIFICATE ATT ",
+    file: "/files/Building-safety-att.pdf",
+  },
+  {
+    sno: "12",
+    document: "TN RECOGNITION EGS SMART CAMPUS",
+    file: "/files/TN-reg-ECG.pdf",
+  },
 ];
 
 /* =========================================================
@@ -72,18 +92,18 @@ const documentsInformation = [
 ========================================================= */
 
 const resultsAndAcademics = [
-  { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/documents/fee-structure.pdf", type: "view" },
+  { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/documents/School-fee.pdf", type: "view" },
   { sno: "2", document: "ANNUAL ACADEMIC CALENDAR", file: "/documents/annual-academic-calendar.pdf", type: "view" },
   {
     sno: "3",
     document: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)",
-    file: "/documents/school-management-committee.pdf",
+    file: "/documents/School-management.pdf",
     type: "view",
   },
   {
     sno: "4",
     document: "LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS",
-    file: "/documents/pta-members.pdf",
+    file: "/documents/Parent-teacher.pdf",
     type: "view",
   },
   {
@@ -100,12 +120,12 @@ const resultsAndAcademics = [
 
 const staffInformation = [
   { sno: "1", information: "PRINCIPAL", details: "Mr. RAHAMATHULLA K M" },
-  { sno: "2", information: "TOTAL NO. OF TEACHERS", details: "26" },
-  { sno: "2a", information: "PGT", details: "" },
-  { sno: "2b", information: "TGT", details: "14" },
-  { sno: "2c", information: "PRT", details: "6" },
+  { sno: "2", information: "TOTAL NO. OF TEACHERS", details: "23" },
+  { sno: "2a", information: "PGT", details: "-" },
+  { sno: "2b", information: "TGT", details: "11" },
+  { sno: "2c", information: "PRT", details: "05" },
   { sno: "3", information: "TEACHER SECTION RATIO", details: "1:1.5" },
-  { sno: "4", information: "DETAILS OF SPECIAL EDUCATOR", details: "" },
+  { sno: "4", information: "DETAILS OF SPECIAL EDUCATOR", details: "1" },
   {
     sno: "5",
     information: "DETAILS OF COUNSELLOR AND WELLNESS TEACHER",
@@ -115,10 +135,10 @@ const staffInformation = [
 
 /* Result Class X / XII tables (currently empty rows as per source form) */
 const resultClassX = [
-  { sno: "1", year: "", registered: "", passed: "", percentage: "", remarks: "" },
+  { sno: "1", year: "NOT APPLICABLE", registered: "NOT APPLICABLE", passed: "NOT APPLICABLE", percentage: "NOT APPLICABLE", remarks: "NOT APPLICABLE" },
 ];
 const resultClassXII = [
-  { sno: "1", year: "", registered: "", passed: "", percentage: "", remarks: "" },
+  { sno: "1", year: "NOT APPLICABLE", registered: "NOT APPLICABLE", passed: "NOT APPLICABLE", percentage: "NOT APPLICABLE", remarks: "NOT APPLICABLE" },
 ];
 
 /* =========================================================
