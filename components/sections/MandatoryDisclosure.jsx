@@ -198,25 +198,31 @@ const MandatoryDisclosure = () => {
               </thead>
               <tbody>
                 {documentsInformation.map((item) => (
-                  <tr key={item.sno} className="h-[62px]">
-                    <td className={tdClass}>{item.sno}</td>
-                    <td className={tdClass}>{item.document}</td>
-                    <td className={tdClass}>
-                      {item.file === "#" ? (
-                        "-"
-                      ) : (
-                        <a
-                          href={item.file}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className=""
-                        >
-                          View
-                        </a>
-                      )}
-                    </td>
-                  </tr>
-                ))}
+  <tr key={item.sno} className="h-[62px]">
+    <td className={tdClass}>{item.sno}</td>
+
+    <td className={tdClass}>
+      {item.document}
+    </td>
+
+    <td className={tdClass}>
+      {item.file === "#" ? (
+        <span className="text-[#0B1F3A]">
+          View
+        </span>
+      ) : (
+        <a
+          href={item.file}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#0B1F3A]"
+        >
+          View
+        </a>
+      )}
+    </td>
+  </tr>
+))}
               </tbody>
             </table>
           </div>
