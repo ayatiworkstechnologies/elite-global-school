@@ -90,7 +90,7 @@ const resultsAndAcademics = [
     sno: "5",
     document: "LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY",
     file: "NOT APPLICABLE",
-    type: "view",
+    type: "NOT APLLICABLE",
   },
 ];
 
@@ -254,7 +254,7 @@ const MandatoryDisclosure = () => {
                           View
                         </a>
                       ) : (
-                        <span className="text-[#202020]">Given Below</span>
+                        <span className="text-[#202020]">NOT APPLICABLE</span>
                       )}
                     </td>
                   </tr>
