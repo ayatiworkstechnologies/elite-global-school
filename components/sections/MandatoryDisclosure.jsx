@@ -72,18 +72,18 @@ const documentsInformation = [
 ========================================================= */
 
 const resultsAndAcademics = [
-  { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/documents/School-fee.pdf", type: "view" },
+  { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/files/School-fee.pdf", type: "view" },
   { sno: "2", document: "ANNUAL ACADEMIC CALENDAR", file: "/documents/annual-academic-calendar.pdf", type: "view" },
   {
     sno: "3",
     document: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)",
-    file: "/documents/School-management.pdf",
+    file: "/files/School-management.pdf",
     type: "view",
   },
   {
     sno: "4",
     document: "LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS",
-    file: "/documents/Parent-teacher.pdf",
+    file: "/files/Parent-teacher.pdf",
     type: "view",
   },
   {
