@@ -73,7 +73,7 @@ const documentsInformation = [
 
 const resultsAndAcademics = [
   { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/files/School-fee.pdf", type: "view" },
-  { sno: "2", document: "ANNUAL ACADEMIC CALENDAR", file: "/documents/annual-academic-calendar.pdf", type: "view" },
+  { sno: "2", document: "ANNUAL ACADEMIC CALENDAR", file: "/files/Academic-calender.pdf", type: "view" },
   {
     sno: "3",
     document: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)",
