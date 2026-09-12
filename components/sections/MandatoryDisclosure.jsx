@@ -209,7 +209,7 @@ const MandatoryDisclosure = () => {
                           href={item.file}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="underline"
+                          className=""
                         >
                           View
                         </a>
