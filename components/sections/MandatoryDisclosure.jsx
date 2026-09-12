@@ -32,7 +32,7 @@ const documentsInformation = [
   {
     sno: "2",
     document: "COPIES OF SOCIETIES / TRUST / COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE",
-    file: "/files/Trust_Certificate.pdf",
+    file: "/files/Trust-deed.pdf",
   },
   {
     sno: "3",
@@ -42,12 +42,12 @@ const documentsInformation = [
   {
     sno: "4",
     document: "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT'S RENEWAL IF APPLICABLE",
-    file: "/files/recognition-certificate.pdf",
+    file: "/files/TN-reg-ECG.pdf",
   },
   {
     sno: "5",
     document: "COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE",
-    file: "/files/Building_Certificate.pdf",
+    file: "/files/Building-safety-att.pdf",
   },
   {
     sno: "6",
@@ -63,27 +63,7 @@ const documentsInformation = [
   {
     sno: "8",
     document: "COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES",
-    file: "/files/SANITATION_CERTIFICATE.pdf",
-  },
-  {
-    sno: "9",
-    document: "SANITARY SELF ATTESTED EGS CERTIFICATES",
     file: "/files/Sanitary-self-EGS.pdf",
-  },
-  {
-    sno: "10",
-    document: "TRUST DEED VM YOOSUF EGS CERTIFICATES",
-    file: "/files/Trust-deed.pdf",
-  },
-  {
-    sno: "11",
-    document: "BUILDING SAFETY CERTIFICATE ATT ",
-    file: "/files/Building-safety-att.pdf",
-  },
-  {
-    sno: "12",
-    document: "TN RECOGNITION EGS SMART CAMPUS",
-    file: "/files/TN-reg-ECG.pdf",
   },
 ];
 
@@ -109,7 +89,7 @@ const resultsAndAcademics = [
   {
     sno: "5",
     document: "LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY",
-    file: "/documents/three-year-result.pdf",
+    file: "NOT APPLICABLE",
     type: "view",
   },
 ];
@@ -123,13 +103,13 @@ const staffInformation = [
   { sno: "2", information: "TOTAL NO. OF TEACHERS", details: "23" },
   { sno: "2a", information: "PGT", details: "-" },
   { sno: "2b", information: "TGT", details: "11" },
-  { sno: "2c", information: "PRT", details: "05" },
+  { sno: "2c", information: "PRT", details: "5" },
   { sno: "3", information: "TEACHER SECTION RATIO", details: "1:1.5" },
   { sno: "4", information: "DETAILS OF SPECIAL EDUCATOR", details: "1" },
   {
     sno: "5",
     information: "DETAILS OF COUNSELLOR AND WELLNESS TEACHER",
-    details: "Ms. SHAREEFA HANNOM., M.Sc., (PSYCHOLOGY)",
+    details: "1",
   },
 ];
 
@@ -151,7 +131,7 @@ const schoolInfrastructure = [
   {
     sno: "3",
     information: "NO. AND SIZE OF LABORATORIES INCLUDING COMPUTER LABS (IN SQ MTR)",
-    details: "5 labs, 284 sq. mtr",
+    details: "6 labs, 57 sq. mtr each",
   },
   { sno: "4", information: "INTERNET FACILITY", details: "YES" },
   { sno: "5", information: "NO. OF GIRLS TOILETS", details: "17" },
