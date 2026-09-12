@@ -58,7 +58,7 @@ const documentsInformation = [
     sno: "7",
     document:
       "COPY OF THE SELF CERTIFICATION SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATION",
-    file: "/documents/self-certification.pdf",
+    file: "#",
   },
   {
     sno: "8",
@@ -198,17 +198,22 @@ const MandatoryDisclosure = () => {
               </thead>
               <tbody>
                 {documentsInformation.map((item) => (
-                  <tr key={item.sno} className="transition-colors hover:bg-[#fffaf7]">
-                    <td className={`${tdClass} align-top`}>{item.sno}</td>
-                    <td className={`${tdClass} align-top leading-[1.6]`}>{item.document}</td>
-                    <td className={`${tdClass} align-top`}>
-                      
-                        <a href={item.file}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#285985] no-underline transition-colors hover:text-[#ff6500] hover:underline" >
-                        View
-                      </a>
+                  <tr key={item.sno} className="h-[62px]">
+                    <td className={tdClass}>{item.sno}</td>
+                    <td className={tdClass}>{item.document}</td>
+                    <td className={tdClass}>
+                      {item.file === "#" ? (
+                        "-"
+                      ) : (
+                        <a
+                          href={item.file}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline"
+                        >
+                          View
+                        </a>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -245,8 +250,8 @@ const MandatoryDisclosure = () => {
                     <td className={`${tdClass} leading-[1.5]`}>{item.document}</td>
                     <td className={tdClass}>
                       {item.type === "view" ? (
-                        
-                         < a href={item.file}
+
+                        < a href={item.file}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[#285985] no-underline transition-colors hover:text-[#ff6500] hover:underline"
