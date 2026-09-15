@@ -32,27 +32,27 @@ const documentsInformation = [
   {
     sno: "2",
     document: "COPIES OF SOCIETIES / TRUST / COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE",
-    file: "/files/Trust-deed.pdf",
+    file: "/TrustCertificate.pdf",
   },
   {
     sno: "3",
     document: "COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT",
-    file: "/files/TN-NOC-EGS.pdf",
+    file: "/NOC.pdf",
   },
   {
     sno: "4",
     document: "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT'S RENEWAL IF APPLICABLE",
-    file: "/files/TN-reg-ECG.pdf",
+    file: "/RecognitionCertificate.pdf",
   },
   {
     sno: "5",
     document: "COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE",
-    file: "/files/Building-safety-att.pdf",
+    file: "/BuildingCertificate.pdf",
   },
   {
     sno: "6",
     document: "COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY",
-    file: "/files/Fire-Certificate.pdf",
+    file: "/FireCertificate.pdf",
   },
   {
     sno: "7",
@@ -63,7 +63,7 @@ const documentsInformation = [
   {
     sno: "8",
     document: "COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES",
-    file: "/files/Sanitary-self-EGS.pdf",
+    file: "/WaterHealthCertificate.pdf",
   },
 ];
 
@@ -72,18 +72,18 @@ const documentsInformation = [
 ========================================================= */
 
 const resultsAndAcademics = [
-  { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/files/School-fee.pdf", type: "view" },
-  { sno: "2", document: "ANNUAL ACADEMIC CALENDAR", file: "/files/Academic-calender.pdf", type: "view" },
+  { sno: "1", document: "FEE STRUCTURE OF THE SCHOOL", file: "/FeeStructure.pdf", type: "view" },
+  { sno: "2", document: "ANNUAL ACADEMIC CALENDAR", file: "/AcademicCalender.pdf", type: "view" },
   {
     sno: "3",
     document: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)",
-    file: "/files/School-management.pdf",
+    file: "/List_of_SMC.pdf",
     type: "view",
   },
   {
     sno: "4",
     document: "LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS",
-    file: "/files/Parent-teacher.pdf",
+    file: "/Link_of_PTA.pdf",
     type: "view",
   },
   {
@@ -183,56 +183,74 @@ const MandatoryDisclosure = () => {
 
         {/* ===================== B. DOCUMENTS AND INFORMATION ===================== */}
         <div className="mt-20 sm:mt-24 lg:mt-[100px]">
-          <h2 className={sectionTitleClass}>B. DOCUMENTS AND INFORMATION</h2>
+  <h2 className={sectionTitleClass}>B. DOCUMENTS AND INFORMATION</h2>
 
-          <div className={tableWrapClass}>
-            <table className={tableClass}>
-              <thead>
-                <tr>
-                  <th className={`w-[4%] ${thClass} align-top`}>SNO</th>
-                  <th className={`w-[70%] ${thClass} align-top`}>DOCUMENTS/INFORMATION</th>
-                  <th className={`w-[26%] ${thClass} align-top`}>
-                    LINKS OF UPLOADED DOCUMENTS ON YOUR SCHOOL'S WEBSITE
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {documentsInformation.map((item) => (
-  <tr key={item.sno} className="h-[62px]">
-    <td className={tdClass}>{item.sno}</td>
+  <div className={tableWrapClass}>
+    <table className={tableClass}>
+      <thead>
+        <tr>
+          <th className={`w-[4%] ${thClass} align-top`}>SNO</th>
 
-    <td className={tdClass}>
-      {item.document}
-    </td>
+          <th className={`w-[70%] ${thClass} align-top`}>
+            DOCUMENTS/INFORMATION
+          </th>
 
-    <td className={tdClass}>
-      {item.file === "#" ? (
-        <span className="text-[#0B1F3A]">
-          View
-        </span>
-      ) : (
-        <a
-          href={item.file}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#0B1F3A]"
-        >
-          View
-        </a>
-      )}
-    </td>
-  </tr>
-))}
-              </tbody>
-            </table>
-          </div>
+          <th className={`w-[26%] ${thClass} align-top`}>
+            LINKS OF UPLOADED DOCUMENTS ON YOUR SCHOOL'S WEBSITE
+          </th>
+        </tr>
+      </thead>
 
-          {/* <p className="mt-6 text-[14px] italic text-[#555] sm:text-[15px]">
-            The school needs to upload self-attested copies of the above listed documents by
-            Chairman/Manager/Secretary and Principal. In case it is noticed at a later stage that uploaded
-            documents are not genuine, the school shall be liable for action as per norms.
-          </p> */}
-        </div>
+      <tbody>
+        {documentsInformation.map((item) => (
+          <tr
+            key={item.sno}
+            className={
+              item.sno === 7
+                ? "h-[62px]"
+                : "h-[62px] hover:bg-[#fff5f2] transition-colors duration-200"
+            }
+          >
+            <td className={tdClass}>
+              {item.sno}
+            </td>
+
+            <td className={tdClass}>
+              {item.document}
+            </td>
+
+            <td className={tdClass}>
+              {item.file === "#" ? (
+                <span
+                  className={
+                    item.sno === 7
+                      ? "text-[#0B1F3A]"
+                      : "text-[#0B1F3A] hover:text-[#FF6600] hover:underline cursor-pointer"
+                  }
+                >
+                  View
+                </span>
+              ) : (
+                <a
+                  href={item.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    item.sno === 7
+                      ? "text-[#0B1F3A]"
+                      : "text-[#0B1F3A] hover:text-[#FF6600] hover:underline cursor-pointer"
+                  }
+                >
+                  View
+                </a>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
 
         {/* ===================== C. RESULT AND ACADEMICS ===================== */}
         <div className="mt-20 sm:mt-24 lg:mt-[100px]">
