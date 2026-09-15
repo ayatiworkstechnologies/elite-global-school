@@ -58,7 +58,7 @@ const documentsInformation = [
     sno: "7",
     document:
       "COPY OF THE SELF CERTIFICATION SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATION",
-    file: "#",
+    file: "/DEOCertificate.pdf",
   },
   {
     sno: "8",
