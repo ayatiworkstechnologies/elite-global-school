@@ -65,6 +65,21 @@ const documentsInformation = [
     document: "COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES",
     file: "/WaterHealthCertificate.pdf",
   },
+  {
+    sno: "9",
+    document: "LAND CERTIFICATE OF THE SCHOOL",
+    file: "/LandCertificate.pdf",
+  },
+  {
+    sno: "10",
+    document: "LEASE DEED CERTIFICATES",
+    file: "/Leasedeed.pdf",
+  },
+  {
+    sno: "11",
+    document: "CBSE MANDATORY PUBLIC DISCLOSURE DOCUMENT",
+    file: "#",
+  },
 ];
 
 /* =========================================================
