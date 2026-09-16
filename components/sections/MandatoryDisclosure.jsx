@@ -78,7 +78,7 @@ const documentsInformation = [
   {
     sno: "11",
     document: "CBSE MANDATORY PUBLIC DISCLOSURE DOCUMENT",
-    file: "#",
+    file: "CBSE-Mandatorypublicdisclosure",
   },
 ];
 
